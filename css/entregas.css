@@ -1,0 +1,48 @@
+.entregas {
+    background-image: url('images/fundo-all-dtech.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: #f0f0f0;
+    padding: 60px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align:justify; 
+    box-sizing: border-box;
+}
+
+.entregas h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #00d4ff; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+}
+
+.entregas pre {
+    max-width: 800px; 
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.8;
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 15px 25px; 
+    border-radius: 3px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.entregas strong {
+    color: #14f0e5; 
+}
+
+.entregas .slogan {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #3bd8ff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
