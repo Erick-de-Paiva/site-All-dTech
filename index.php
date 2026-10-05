@@ -26,7 +26,7 @@ session_start();
     
     <header class="header">
         
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
      <section class="hero-carousel">
     <div class="slides">

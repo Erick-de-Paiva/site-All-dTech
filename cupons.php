@@ -12,7 +12,7 @@
 <body onload="carregarUsuario()">
     <header class="header">
         
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="card" style="width: 18rem;">
  <br> <br> <img src="img/desconto-placavidio.png" class="card-img-top" alt="imagem 1" width="150px"> 
@@ -52,7 +52,7 @@
             <div class="footer-col">
                 <h3>Institucional</h3>
                 <ul>
-                    <li><a href="quemsomos.html">Quem somos</a></li>
+                    <li><a href="quemsomos.php">Quem somos</a></li>
                     <li><a href="#">Localização</a></li>
                 </ul>
             </div>
@@ -60,7 +60,7 @@
             <div class="footer-col">
                 <h3>Ajuda</h3>
                 <ul>
-                    <li><a href="entregas.html">Entrega</a></li>
+                    <li><a href="entregas.php">Entrega</a></li>
                     <li><a href="#">Garantia</a></li>
                     <li><a href="#">Como comprar</a></li>
                     <li><a href="#">Fale Conosco</a></li>

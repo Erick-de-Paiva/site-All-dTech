@@ -22,7 +22,7 @@
     
     <header class="header">
         
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <section class="promo"> <br><br>
      <div class="section-header">
@@ -97,7 +97,7 @@
             <div class="footer-col">
                 <h3>Institucional</h3>
                 <ul>
-                    <li><a href="quemsomos.html">Quem somos</a></li>
+                    <li><a href="quemsomos.php">Quem somos</a></li>
                     <li><a href="#">Localização</a></li>
                 </ul>
             </div>
@@ -105,7 +105,7 @@
             <div class="footer-col">
                 <h3>Ajuda</h3>
                 <ul>
-                    <li><a href="entregas.html">Entrega</a></li>
+                    <li><a href="entregas.php">Entrega</a></li>
                     <li><a href="#">Garantia</a></li>
                     <li><a href="#">Como comprar</a></li>
                     <li><a href="#">Fale Conosco</a></li>
@@ -132,5 +132,3 @@
 
 </html>
         
-</body>
-</html>
