@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <img src="img/logo-branca.png" alt="logo" width="200" style="cursor:pointer;">
+    </a>    
+</header>
+
+<div class="container">
+    <h2>Login</h2>
+
+    <div id="msgBox" class="msg"></div>
+
+    <form onsubmit="entrar(event)">
+        <label>Login *</label>
+        <input id="login" required>
+
+        <label>Senha *</label>
+        <input id="senha" type="password" required>
+
+        <button type="submit">Enviar</button>
+        <button type="reset" class="btn-secondary">Limpar</button>
+    </form>
+
+    <p style="text-align:center;margin-top:10px;">
+        Novo usuário? <a href="cadastro.html" target="_blank" id="cad">Cadastre-se</a>
+    </p>
+</div>
+
+<script src="js/cadastro.js" defer></script>
+
+</body>
+</html>

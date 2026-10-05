@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/produtos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <title>Catálogo de Produtos</title>
+
+</head>
+
+<body onload="carregarUsuario()">
+  <header class="header">
+        <div class="barra">
+       <a href="index.html"> <img src="img/logo-branca.png" alt="logo" width="200"></a>
+
+        <div class="pesquisa">
+            <input type="text" placeholder="Digite aqui...">
+            <button>🔍</button>
+        </div>
+
+        <button id="toggleTheme" class="theme-btn">🌞</button>
+        <button id="fontBtn" class="font-btn">🔍</button>
+
+        <div class="user">
+          <div class="header">
+            Logado como: <span id="userTop"></span>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="#" onclick="logout()" style="color:white;">Logout</a>
+            
+        </div>
+            <a href="login.html " class="Login">
+                <img src="img/login-branco.png" alt="" class="user-icon">
+            </a>
+            
+            <a href="#" class="cart">
+            <img src="img/icons8-carrinho-de-compras-64.png" alt="carrinho" class="cart-icone">CARRINHO (0)</a>
+            
+        </div>
+        </div>
+
+    <nav class="menu">
+        
+    <ul>
+    <li class="submenu-btn">
+            <a href="#">☰</a>
+
+             <ul class="submenu">
+        <li class="subitem">
+            <a href="#">Hardware ></a>
+
+           
+            <ul class="submenu2">
+                <li><a href="placa-video.html">Placa de video</a></li>
+                <li><a href="processador.html">Processador</a></li>
+            </ul>
+        </li>
+
+        <li class="subitem">
+            <a href="#">Monitor Gamer ></a>
+            <ul class="submenu2">
+                <li><a href="#">ACER</a></li>
+                <li><a href="#">LG</a></li>
+            </ul>
+        </li>
+
+        <li class="subitem">
+            <a href="#">Cadeira Gamer</a>
+            <ul class="submenu2">
+                <li><a href="#">Cadeira</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+        </li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="produtos.html">PRODUTOS</a></li>
+        <li><a href="quemsomos.html">QUEM SOMOS</a></li>
+        <li><a href="cupons.html">CUPONS</a></li>
+    </ul>
+</nav>
+
+  <br><br><h1>Catálogo de Produtos</h1>
+  <div class="catalogo">
+    <div class="produto">
+      <img src="img/AMD Ryzen 5 5600X.png" alt="Produto 1">
+      <h3>AMD Ryzen 5 5600X</h3>
+      <p>R$ 1.599,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/AMD Ryzen 5 3600.png" alt="Produto 2">
+      <h3>Ryzen 5 3600</h3>
+      <p>R$ 899,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/ASRock B550 Steel Legend.png" alt="Produto 3">
+      <h3>Placa-Mãe ASRock B550 Steel Legend</h3>
+      <p>R$ 1.599,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/Colorful BATTLE-AX A520M-K.png" alt="Produto 4">
+      <h3>Placa-Mãe A520M-K Colorful Battle-AX</h3>
+      <p>R$ 999,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/SanDisk Ultra 3D SATA SSD – 500GB.png" alt="Produto 5">
+      <h3>SSD SanDisk Ultra 3D SATA 500GB</h3>
+      <p>R$ 249,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/AMD Ryzen 7 7700X.png" alt="Produto 6">
+      <h3>Ryzen 7 7700X</h3>
+      <p>R$ 2299,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/ASRock X670E Taichi.png" alt="Produto 7">
+      <h3>Placa-Mãe Gigabyte X670 AORUS MASTER</h3>
+      <p>R$ 2.599,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/be quiet! Pure Rock 2 Black.png" alt="Produto 8">
+      <h3>Air Cooler be quiet! Pure Rock 2 Black</h3>
+      <p>R$ 399,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/Intel Core i7-13700K.png" alt="Produto 9">
+      <h3>Intel core i7-13700k</h3>
+      <p>R$ 2.499,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/Gigabyte Z790 AORUS ELITE AX..png" alt="Produto 10">
+      <h3>Placa mãe ROG Strix Z790-E</h3>
+      <p>R$ 1.199,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/WD Black SN850X NVMe SSD – 1TB.png" alt="Produto 11">
+      <h3>SSD WD Black SN850X NVMe 1TB</h3>
+      <p>R$ 459,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/Corsair Dominator Platinum RGB DDR5 – 32GB (2x16GB) 6000MHz CL36.png" alt="Produto 12">
+      <h3>Corsair Dominator Platinum DDR5 32GB (2x16GB)</h3>
+      <p>R$ 1.299,99</p>
+    </div>
+
+    <div class="produto">
+      <img src="img/ADATA XPG Spectrix D60G DDR4 – 16GB (2x8GB) 3600MHz CL18.png" alt="Produto 13">
+      <h3>Adata XPG Spectrix DDR4 16GB (2x8GB)</h3>
+      <p>R$ 1.299,99</p>
+    </div>
+
+  </div>
+  <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>Departamentos</h3>
+                <ul>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Computadores</a></li>
+                    <li><a href="#">Monitores</a></li>   
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="quemsomos.html">Quem somos</a></li>
+                    <li><a href="#">Localização</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="entregas.html">Entrega</a></li>
+                    <li><a href="#">Garantia</a></li>
+                    <li><a href="#">Como comprar</a></li>
+                    <li><a href="#">Fale Conosco</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-x"></i></a>   
+                </div>
+            </div>
+
+        </div>
+
+</footer>
+     
+  </main>
+ <script src="js/theme.js"></script>
+ <script src="js/cadastro.js" defer></script>
+</body>
+
+</html>
