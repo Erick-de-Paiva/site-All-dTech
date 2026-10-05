@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -11,19 +14,19 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,100;1,700&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="css/footer.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link rel="stylesheet" href="css/acessibilidade.css">
-        <script src="js/carrossel.js"></script>
-        <script src="js/acess.js"></script>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/acessibilidade.css">
+    <script src="js/carrossel.js"></script>
+    <script src="js/acess.js"></script>
     <title>All'Dtech</title>
 </head>
 
-<body onload="carregarUsuario()">
+<body>
     
     <header class="header">
         <div class="barra">
-       <a href="index.html">
+       <a href="index.php">
     <img id="logo" src="img/logo-branca.png" alt="logo" width="200">
 </a>
         <div class="pesquisa">
@@ -36,16 +39,20 @@
 
         <div class="user">
 
-        <div class="header">
-            Logado como: <span id="userTop"></span>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <a href="#" onclick="logout()" style="color:white;">Logout</a>
-            
+        <div class="header-user-info" style="color: white; display: inline-block; vertical-align: middle; margin-right: 15px;">
+            <?php if (isset($_SESSION['usuario_logado'])): ?>
+                Logado como: <strong><?php echo htmlspecialchars($_SESSION['usuario_logado']); ?></strong>
+                <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
+                    <span style="color: #ffc107; font-size: 12px; margin-left: 5px;">(Master)</span>
+                <?php endif; ?>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="logout.php" style="color:white; text-decoration: underline;">Sair</a>
+            <?php else: ?>
+                <a href="login.html" class="Login" style="color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+                     <img id="loginIcon" src="img/login-branco.png" alt="" class="user-icon" style="width: 40px; height: 40px;"> Entrar
+                </a>
+            <?php endif; ?>
         </div>
-
-            <a href="login.html " class="Login">
-                <img id="loginIcon" src="img/login-branco.png" alt="" class="user-icon">
-            </a>
             
             <a href="#" class="cart">
             <img src="img/icons8-carrinho-de-compras-64.png" alt="carrinho" class="cart-icone">CARRINHO (0)</a>
@@ -87,7 +94,7 @@
     </ul>
 </li>
         </li>
-        <li><a href="index.html">HOME</a></li>
+        <li><a href="index.php">HOME</a></li>
         <li><a href="produtos.html">PRODUTOS</a></li>
         <li><a href="quemsomos.html">QUEM SOMOS</a></li>
         <li><a href="cupons.html">CUPONS</a></li>
@@ -121,7 +128,7 @@
             style="background-color: #007bff; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Comprar</a>
         </div>
       </div>
-  
+ 
       <div class="card" style="width: 40rem; border: 1px solid #ddd; border-radius: 10px; overflow: hidden;">
         <img src="img/block-banner-2.png" class="card-img-top" alt="Produto 2"
           style="width:100%; height:500px; object-fit: cover;">
@@ -132,7 +139,7 @@
             style="background-color: #007bff; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Comprar</a>
         </div>
       </div>
-  
+ 
       <div class="card" style="width: 40rem; border: 1px solid #ddd; border-radius: 10px; overflow: hidden;">
         <img src="img/block-banner-3.png" class="card-img-top" alt="Produto 3"
           style="width:100%; height:500px; object-fit: cover;">
@@ -155,14 +162,14 @@
         </div>
       </div>
       
-  
+ 
      </div>
-      
+     
      </section>
 
       <section class="promo">
       <div class="section-header">
-         <h2>🔥🎄DESCONTOS NATALINOS🎄🔥</h2>
+          <h2>🔥🎄DESCONTOS NATALINOS🎄🔥</h2>
       </div>
 
       <div class="prodt">
@@ -218,7 +225,7 @@
      </section> <br><br><br>
 
 
-     <section class="promo"> <br><br>
+      <section class="promo"> <br><br>
      <div class="section-header">
         <h2>🔥Mais Procurados🔥</h2>
      </div>

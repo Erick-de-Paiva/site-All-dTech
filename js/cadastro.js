@@ -130,10 +130,9 @@ async function entrar(e) {
         let resultado = await resposta.json();
 
         if (resultado.sucesso) {
-            localStorage.setItem("logado", resultado.login);
             showMessage(resultado.mensagem, "ok");
             setTimeout(() => {
-                window.location.href = "index.html";
+                window.location.href = resultado.redirecionar;
             }, 1500);
         } else {
             showMessage(resultado.mensagem, "err");

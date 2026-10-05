@@ -17,11 +17,14 @@ try {
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($usuario && password_verify($dados['senha'], $usuario['senha'])) {
-        $_SESSION['usuario_logado'] = $usuario['login'];
+        $_SESSION['temp_user_id'] = $usuario['id'];
+        $_SESSION['temp_user_login'] = $usuario['login'];
+        $_SESSION['temp_user_perfil'] = $usuario['perfil'] ?? 'comum'; 
+
         echo json_encode([
             'sucesso' => true, 
-            'mensagem' => 'Login efetuado com sucesso!',
-            'login' => $usuario['login']
+            'mensagem' => 'Login validado. Redirecionando para o 2FA...',
+            'redirecionar' => '2fa.php'
         ]);
     } else {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Login ou senha incorretos.']);
