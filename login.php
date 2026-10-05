@@ -30,7 +30,7 @@
     </form>
 
     <p style="text-align:center;margin-top:10px;">
-        Novo usuário? <a href="cadastro.html" target="_blank" id="cad">Cadastre-se</a>
+        Novo usuário? <a href="cadastro.php" target="_blank" id="cad">Cadastre-se</a>
     </p>
 </div>
 

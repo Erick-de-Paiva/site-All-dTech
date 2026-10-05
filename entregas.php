@@ -18,74 +18,9 @@
 
 <body>
   <header class="header">
-        <div class="barra">
-       <a href="index.php"> <img src="img/logo-branca.png" alt="logo" width="200"></a>
-
-        <div class="pesquisa">
-            <input type="text" placeholder="Digite aqui...">
-            <button>🔍</button>
-        </div>
-
-        <button id="toggleTheme" class="theme-btn">🌞</button>
-        <button id="fontBtn" class="font-btn">🔍</button>
-
-        <div class="user">
-            <a href="login.html" class="Login">
-                <img src="img/login-branco.png" alt="" class="user-icon">
-            </a>
-            
-            <a href="#" class="cart">
-            <img src="img/icons8-carrinho-de-compras-64.png" alt="carrinho" class="cart-icone">CARRINHO (0)</a>
-            
-        </div>
-        </div>
-    <nav class="menu">
-        
-    <ul>
-    <li class="submenu-btn">
-            <a href="#">☰</a>
-
-             <ul class="submenu">
-        <li class="subitem">
-            <a href="#">Hardware ></a>
-
-           
-            <ul class="submenu2">
-                <li><a href="placa-video.html">Placa de video</a></li>
-                <li><a href="processador.html">Processador</a></li>
-            </ul>
-        </li>
-
-        <li class="subitem">
-            <a href="#">Monitor Gamer ></a>
-            <ul class="submenu2">
-                <li><a href="#">ACER</a></li>
-                <li><a href="#">LG</a></li>
-            </ul>
-        </li>
-
-        <li class="subitem">
-            <a href="#">Cadeira Gamer</a>
-            <ul class="submenu2">
-                <li><a href="#">Cadeira</a></li>
-            </ul>
-        </li>
-    </ul>
-</li>
-        </li>
-        <li><a href="index.php">HOME</a></li>
-        <li><a href="produtos.html">PRODUTOS</a></li>
-        <li><a href="quemsomos.html">QUEM SOMOS</a></li>
-        <li><a href="cupons.html">CUPONS</a></li>
-    </ul>
-</nav>
+    
+  <?php include 'header.php'; ?>
   
-    <nav class="navbar">
-      <ul>
-        <li><a href="entregas.html"></a></li>
-      </ul>
-    </nav>
-  </header>
   <main>
     <section id="entregas" class="entregas">
       <h1>Entrega</h1>

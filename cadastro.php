@@ -83,7 +83,7 @@
     </form>
 
     <p style="text-align:center;margin-top:10px;">
-        Já tem conta? <a href="login.html" id="log">Faça login</a>
+        Já tem conta? <a href="login.php" id="log">Faça login</a>
     </p>
 </div>
 
