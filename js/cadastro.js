@@ -107,13 +107,41 @@ async function cadastrar(e) {
     }
 }
 
-function entrar(e) {
+async function entrar(e) {
     e.preventDefault();
 
     let login = document.getElementById("login").value;
     let senha = document.getElementById("senha").value;
 
-    // A lógica de login via PHP faremos no próximo passo!
+    if (!login || !senha) {
+        showMessage("Preencha todos os campos.", "err");
+        return;
+    }
+
+    try {
+        let resposta = await fetch("processar_login.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ login, senha })
+        });
+
+        let resultado = await resposta.json();
+
+        if (resultado.sucesso) {
+            localStorage.setItem("logado", resultado.login);
+            showMessage(resultado.mensagem, "ok");
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
+        } else {
+            showMessage(resultado.mensagem, "err");
+        }
+
+    } catch (erro) {
+        showMessage("Erro de comunicação com o servidor.", "err");
+    }
 }
 
 function carregarUsuario() {
