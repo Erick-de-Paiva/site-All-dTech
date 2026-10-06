@@ -1,0 +1,420 @@
+.header {
+    width: 100%;
+    background-color: #222; 
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.pesquisa {
+    display: flex;
+    width: 35%; 
+    align-items: center;
+    background-color: #3a3a3a;
+    border-radius: 12px;
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    height: 42px; 
+}
+
+.pesquisa input {
+    flex: 1;
+    padding: 0 14px; 
+    background-color: transparent;
+    color: white;
+    font-size: 15px; 
+    border: none;
+    outline: none;
+    height: 100%;
+}
+
+.pesquisa button {
+    background: #00bcd4;
+    color: white;
+    border: none;
+    padding: 0 16px; 
+    cursor: pointer;
+    font-size: 16px;
+    height: 100%;
+    transition: background 0.3s;
+}
+
+.pesquisa button:hover {
+    background: #0097a7;
+}
+
+.user {
+    display: flex;        
+    align-items: center;
+    gap: 15px;            
+}
+
+.header-user-info {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.user-master-tag {
+    color: #ffc107;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.logout-link {
+    color: white;
+    text-decoration: underline;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white !important;    
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.login:hover {
+    color: var(--main-color);    
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.user .cart {
+    background-color: green;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content; 
+}
+
+.cart-icone {
+    width: 30px;  
+    height: 30px;
+}
+
+.theme-btn {
+    position: relative; 
+    right: 0;
+    margin-left: 15px;
+    cursor: pointer;
+    background: #ffffff20;
+    border: 1px solid #ffffff55;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 20px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.08);
+}
+
+.font-btn {
+    position: relative;
+    margin-left: 10px;
+    cursor: pointer;
+    background: #ffffff20;
+    border: 1px solid #ffffff55;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 20px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.font-btn:hover {
+    transform: scale(1.08);
+}
+
+.light-mode .header {
+    background-color: #f1f1f1 !important;
+}
+
+.light-mode .menu {
+    background-color: #e0e0e0 !important;
+}
+
+.light-mode .theme-btn,
+.light-mode .font-btn {
+    background: #00000020;
+    color: black;
+    border: 1px solid #00000055;
+}
+
+.menu {
+    background-color: #3a3a3a;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.menu li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu li a:hover {
+    border-bottom: 2px solid rgb(235, 13, 224);
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+.submenu-btn {
+    position: relative;
+}
+
+.submenu {
+    display: none !important;
+    position: absolute;
+    background: #3a3a3a;
+    list-style: none;
+    padding: 20px 0;
+    margin-top: 8px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    z-index: 999;
+    min-width: 220px;
+}
+
+.submenu li {
+    display: block !important;
+    padding: 12px 20px;
+    font-size: 1.5rem;
+}
+
+.submenu-btn:hover .submenu {
+    display: block !important;
+}
+
+.subitem {
+    position: relative;
+    display: block !important;
+}
+
+.submenu2 {
+    display: none !important;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: #3a3a3a;
+    padding: 20px 0;
+    list-style: none;
+    border-radius: 8px;
+    min-width: 100px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+.subitem:hover .submenu2 {
+    display: block !important;
+}
+
+.submenu2 li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    white-space: nowrap;
+}
+
+.submenu2 li a:hover {
+    background: #00bcd4;
+    color: black;
+}
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.barra .theme-btn, 
+.barra .font-btn {
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px; 
+    cursor: pointer;
+    font-size: 18px; 
+    height: 42px; 
+    background: #ffffff20;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: white;
+}
+
+.barra .theme-btn {
+    font-size: 22px; 
+}
+
+.barra .theme-btn:hover,
+.barra .font-btn:hover {
+    background: #ffffff20;
+}
+
+.barra .font-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px; 
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.barra .font-btn #fontScale {
+    font-size: 11px;
+    opacity: 0.7;
+    font-weight: normal;
+}
+
+.barra .login-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    text-decoration: none;
+    color: #ffffff; 
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    height: 32px; 
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.barra .login-btn .user-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.barra .login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #00bcd4; 
+}
+
+body.light-mode .barra .login-btn {
+    color: #333333; 
+}
+
+body.light-mode .barra .login-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #007bff;
+}
+
+.barra .user-logged-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0 12px;
+    height: 32px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.barra .user-logged-box .user-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.barra .user-logged-box .user-welcome {
+    font-weight: 400;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.barra .user-logged-box .user-welcome strong {
+    font-weight: 600;
+    color: #00bcd4;
+}
+
+.barra .user-logged-box .user-master-tag {
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+.barra .user-logged-box .logout-link {
+    text-decoration: none;
+    color: #ff6b6b;
+    font-weight: 500;
+    margin-left: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.barra .user-logged-box .logout-link:hover {
+    background-color: rgba(255, 107, 107, 0.15);
+}
+
+body.light-mode .barra .user-logged-box {
+    background-color: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333333;
+}
+
+body.light-mode .barra .user-logged-box .user-welcome strong {
+    color: #007bff;
+}
+
+@media (max-width: 678px) {
+    .barra {
+        padding: 15px 15px; 
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .pesquisa {
+        width: 100%;
+        justify-items: end;
+        order: 3; 
+        margin-top: 10px;
+    }
+    
+    .user .cart {
+        padding: 0.8rem; 
+        font-size: 0;
+        gap: 0; 
+        justify-content: center;
+    }
+    
+    .menu ul {
+        flex-wrap: wrap; 
+        gap: 10px;
+        padding: 0 15px;
+    }
+}

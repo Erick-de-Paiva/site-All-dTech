@@ -3,6 +3,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 ?>
+
+<head>
+    <link rel="stylesheet" href="css/header.css">
+</head>
+
 <div class="barra">
     <a href="index.php">
         <img id="logo" src="img/logo-branca.png" alt="logo" width="200">
@@ -13,21 +18,30 @@ if (session_status() === PHP_SESSION_NONE) {
         <button>🔍</button>
     </div>
 
-    <button id="toggleTheme" class="theme-btn">🌞</button>
-    <button id="fontBtn" class="font-btn">🔍</button>
+    <div class="header-tools">
+        <button id="toggleTheme" class="theme-btn" title="Alternar Tema">☀️</button>
+        <button id="fontBtn" class="font-btn" title="Ajustar Tamanho da Fonte">
+            Aa <span id="fontScale">(1x)</span>
+        </button>
+    </div>
 
     <div class="user">
-        <div class="header-user-info" style="color: white; display: inline-block; vertical-align: middle; margin-right: 15px;">
+        <div class="header-user-info">
             <?php if (isset($_SESSION['usuario_logado'])): ?>
-                Logado como: <strong><?php echo htmlspecialchars($_SESSION['usuario_logado']); ?></strong>
-                <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
-                    <span style="color: #ffc107; font-size: 12px; margin-left: 5px;">(Master)</span>
-                <?php endif; ?>
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="logout.php" style="color:white; text-decoration: underline;">Sair</a>
+                <div class="user-logged-box">
+                    <img id="loginIcon" src="img/login-branco.png" alt="Usuário" class="user-icon">
+                    <span class="user-welcome">
+                        Olá, <strong><?php echo htmlspecialchars($_SESSION['usuario_logado']); ?></strong>
+                        <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
+                            <span class="user-master-tag">(Master)</span>
+                        <?php endif; ?>
+                    </span>
+                    <a href="logout.php" class="logout-link">Sair</a>
+                </div>
             <?php else: ?>
-                <a href="login.php" class="Login" style="color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
-                    <img id="loginIcon" src="img/login-branco.png" alt="" class="user-icon" style="width: 40px; height: 40px;"> Entrar
+                <a href="login.php" class="login-btn">
+                    <img id="loginIcon" src="img/login-branco.png" alt="Ícone Entrar" class="user-icon">
+                    <span>Entrar</span>
                 </a>
             <?php endif; ?>
         </div>
