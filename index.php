@@ -39,13 +39,13 @@ session_start();
         </section>
 
         <section class="cards-section">
-            <h2>teste</h2>
+            <h2>⚡ SUPER DESTAQUES</h2>
 
             <div class="cards-container">
                 <div class="card">
                     <img src="img/block-banner-1.png" class="card-img-top" alt="Produto 1">
                     <div class="card-body">
-                        <h5 class="card-title">PLACA DE VIDEO</h5>
+                        <h5 class="card-title">Placa De Vídeo</h5>
                         <p class="card-text"></p><br><br>
                         <a href="#" class="btn">Comprar</a>
                     </div>
