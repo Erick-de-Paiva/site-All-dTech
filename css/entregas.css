@@ -55,8 +55,8 @@
 
 .entrega-card:hover, .intro-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.35);
-    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 12px 25px rgba(235, 13, 224, 0.25);
+    border-color: rgba(235, 13, 224, 0.5);
 }
 
 .intro-card {
