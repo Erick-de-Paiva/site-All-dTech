@@ -5,11 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const logo = document.getElementById("logo");
     const loginIcon = document.getElementById("loginIcon"); 
 
-    if (localStorage.getItem("theme") === "light") {
+    const currentTheme = localStorage.getItem("theme");
+
+    if (currentTheme === "light") {
         body.classList.add("light-mode");
         if (themeBtn) themeBtn.textContent = "🌙";
         if (logo) logo.src = "img/logo-preto.png";
         if (loginIcon) loginIcon.src = "img/login-preto.png";
+    } else {
+        body.classList.remove("light-mode");
+        localStorage.setItem("theme", "dark");
+        if (themeBtn) themeBtn.textContent = "☀️";
+        if (logo) logo.src = "img/logo-branca.png";
+        if (loginIcon) loginIcon.src = "img/login-branco.png";
     }
 
     if (themeBtn) {
@@ -22,14 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (body.classList.contains("light-mode")) {
                 localStorage.setItem("theme", "light");
                 themeBtn.textContent = "🌙";
-                
                 if (logo) logo.src = "img/logo-preto.png";
-                
                 if (loginIcon) loginIcon.src = "img/login-preto.png";
             } else {
                 localStorage.setItem("theme", "dark");
                 themeBtn.textContent = "☀️";
-                
                 if (logo) logo.src = "img/logo-branca.png";
                 if (loginIcon) loginIcon.src = "img/login-branco.png";
             }
