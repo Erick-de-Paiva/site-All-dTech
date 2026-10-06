@@ -1,38 +1,76 @@
-.card {
-    width: 18rem; 
-    background-color: #333; 
-    color: #fff; 
-    border-radius: 12px; 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
-    padding: 20px; 
-    margin: 20px;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
+.cupons-main {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    min-height: calc(100vh - 250px); 
 }
 
+.titulo-pagina {
+    font-family: 'Poppins', sans-serif;
+    color: #00bcd4;
+    text-align: center;
+    margin-bottom: 45px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.cupons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.card {
+    width: 100%;
+    max-width: 320px;
+    background-color: #1e1e24; 
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 188, 212, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 188, 212, 0.2);
+    cursor: pointer;
+}
 
 .card img {
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
     height: auto;
     margin-bottom: 15px;
     border-radius: 8px;
-    
+    object-fit: cover;
+}
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .card-title {
-    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #00d9ff;
-    margin-bottom: 5px;
+    color: #00bcd4;
+    margin: 0;
 }
 
 .card-text {
-    font-size: 14px;
-    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #ccc;
+    margin: 0;
+    line-height: 1.4;
 }
-
-
