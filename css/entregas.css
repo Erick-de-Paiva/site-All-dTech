@@ -1,67 +1,77 @@
 .entregas {
-    background-image: url('../images/fundo-all-dtech.jpg'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
     color: #f0f0f0;
-    padding: 60px 20px;
+    padding: 60px 40px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center; 
     box-sizing: border-box;
 }
 
 .entregas h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3rem; 
-    margin-bottom: 40px;
-    color: #00bcd4; 
+    font-size: 3em;
+    margin-bottom: 35px;
+    color: #00d4ff; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
-    text-align: center;
+}
+
+.entregas h1 strong,
+.intro-card strong,
+.intro-title strong {
+    color: #ffffff !important;
 }
 
 .entregas-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 930px;
+    gap: 15px;
+    max-width: 800px;
     width: 100%;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-top: 15px;
 }
 
-.entrega-card {
-    background-color: rgba(18, 18, 18, 0.88); 
-    border: 1px solid rgba(0, 188, 212, 0.25);
-    border-radius: 12px;
-    padding: 30px 35px; 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+.entrega-card, .intro-card {
+    width: 100%;
+    max-width: 800px; 
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    line-height: 1.8;
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 15px 25px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-align: left; 
 }
 
-.entrega-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(0, 188, 212, 0.5);
+.entrega-card:hover, .intro-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.35);
+    border-color: rgba(0, 212, 255, 0.4);
 }
 
 .intro-card {
     text-align: center;
-    background-color: rgba(26, 26, 32, 0.9);
 }
 
 .intro-title {
-    font-size: 1.25rem; 
-    color: #00bcd4;
+    color: #00d4ff;
+    font-weight: 600;
     margin-bottom: 8px;
 }
 
 .entrega-card p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.18rem; 
-    line-height: 1.8; 
-    color: #e2e8f0;
-    margin: 0 0 12px 0;
-    text-align: justify;
+    margin: 0 0 10px 0;
+    color: #f0f0f0;
 }
 
 .entrega-card p:last-child {
@@ -69,15 +79,14 @@
 }
 
 .entregas strong {
-    color: #00bcd4; 
+    color: #14f0e5; 
 }
 
 .entregas .slogan {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem; 
-    margin-top: 40px;
-    color: #00bcd4;
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #3bd8ff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     text-align: center;
-    font-weight: 600;
 }
