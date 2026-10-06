@@ -78,14 +78,14 @@ session_start();
                     </div>
                 </div>
             </div>
-         </section>
+        </section>
 
         <section class="promo">
             <div class="section-header">
-                <h2>🔥🎄DESCONTOS NATALINOS🎄🔥</h2>
+                <h2>🔥🎄 DESCONTOS NATALINOS 🎄🔥</h2>
             </div>
 
-             <div class="prodt">
+            <div class="prodt">
                 <div class="prodt-card">
                     <div class="desc">-30% OFF</div>
                     <img src="img/AMD Ryzen 5 7600.png" alt="Processador AMD Ryzen" id="card-img">
@@ -105,7 +105,7 @@ session_start();
                 <div class="prodt-card">
                     <div class="desc">-30% OFF</div>
                     <img src="img/Intel Core i5-11400F.png" alt="Intel Core i5" id="card-img">
-                    <p class="prodt-nome">Intel Core i5-11400F  </p>
+                    <p class="prodt-nome">Intel Core i5-11400F</p>
                     <p class="valor-antg">De: R$ 799,00</p>
                     <p class="valor-novo">R$ 599,90 <span class="pg">à vista</span></p>
                 </div>
@@ -134,17 +134,17 @@ session_start();
                     <p class="valor-novo">R$ 1.560,00 <span class="pg">à vista</span></p>
                 </div>
             </div>
-         </section>
+        </section>
 
         <section class="promo">
             <div class="section-header">
-                <h2>🔥Mais Procurados🔥</h2>
+                <h2>🔥 Mais Procurados 🔥</h2>
             </div>
 
             <div class="prodt">
                 <div class="prodt-card">
                     <img src="img/cadeira gamer.jpg" alt="cadeira" id="card-img">
-                    <p class="prodt-nome">Cadeira Gamer </p>
+                    <p class="prodt-nome">Cadeira Gamer</p>
                     <p class="valor-novo">R$ 899,90 <span class="pg">à vista</span></p>
                 </div>
 

@@ -5,79 +5,119 @@
     min-height: calc(100vh - 250px);
 }
 
+/* ==========================================
+   ESTILOS DA SEÇÃO DE PRODUTOS E PROMOÇÕES
+   ========================================== */
 .promo {
-    margin-bottom: 50px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
+/* Título estilizado com sombra e cor alinhada aos cards grandes */
 .section-header h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    color: #00bcd4;
-    letter-spacing: 1px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #00d4ff !important;
+    margin-bottom: 30px;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.4) !important;
 }
 
 .prodt {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
+    justify-content: center; 
+    flex-wrap: wrap;            
+    gap: 25px;                 
+    padding: 10px 0;
 }
 
+/* Card individual com tema escuro e sombras refinadas */
 .prodt-card {
-    background-color: #1e1e24;
-    border: 1px solid transparent;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 260px;
-    padding: 20px;
+    flex: 0 0 240px; 
+    width: 240px; 
+    background-color: #121218 !important; 
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 20px 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .prodt-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(235, 13, 224, 0.25);
-    border-color: rgba(235, 13, 224, 0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 212, 255, 0.3) !important;
+    border-color: rgba(0, 212, 255, 0.5) !important;
 }
 
-.card-img {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    background-color: #121212;
-    padding: 10px;
+/* Imagens dos produtos sem fundo branco e redimensionadas */
+.prodt-card img,
+.prodt-card #card-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: contain !important;
+    margin: 10px auto 15px auto !important;
+    background: transparent !important;
+    display: block !important;
 }
 
+/* Nome do produto claro e legível */
 .prodt-nome {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    min-height: 40px;
+    margin-bottom: 12px;
+    color: #ffffff !important;
+    line-height: 1.3;
 }
 
-.valor-novo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #00bcd4;
+/* Valor antigo riscado */
+.valor-antg {
+    text-decoration: line-through !important;
+    color: #a0aec0 !important;
+    font-size: 13px !important;
     margin: 0;
 }
 
-.pg {
-    font-size: 0.8rem;
-    color: #aaa;
-    font-weight: normal;
+/* Valor novo em destaque ciano/azul */
+.valor-novo {
+    color: #00d4ff !important; 
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    margin-top: 5px;
+}
+
+/* O texto "à vista" forçado estritamente para verde */
+.valor-novo .pg,
+.prodt-card .pg {
+    font-size: 0.75em !important;
+    font-weight: 600 !important;
+    color: #00ff88 !important; /* Verde vibrante */
+    margin-left: 3px !important;
+    display: inline !important;
+}
+
+/* Badge de Desconto (-30% OFF) */
+.prodt-card .desc {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff3333 !important;
+    color: #fff !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    padding: 4px 8px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+    z-index: 2;
 }
