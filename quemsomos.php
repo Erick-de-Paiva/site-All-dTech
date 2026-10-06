@@ -19,7 +19,7 @@
 <body onload="carregarUsuario()">
   <header class="header">
         
-    <?php include 'includes/header.php'; ?>
+    <?php include 'components/header.php'; ?>
 
   <main>
     <section id="quem-somos" class="quem-somos">
@@ -56,47 +56,9 @@
       <h2 class="slogan">All’Dtech — Tecnologia de ponta, na sua mão com rapidez e interatividade.</h2>
     </section>
 
-    <footer>
-        <div class="footer-container">
-
-            <div class="footer-col">
-                <h3>Departamentos</h3>
-                <ul>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Computadores</a></li>
-                    <li><a href="#">Monitores</a></li>   
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Institucional</h3>
-                <ul>
-                    <li><a href="quemsomos.php">Quem somos</a></li>
-                    <li><a href="#">Localização</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Ajuda</h3>
-                <ul>
-                    <li><a href="entregas.php">Entrega</a></li>
-                    <li><a href="#">Garantia</a></li>
-                    <li><a href="#">Como comprar</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-x"></i></a>   
-                </div>
-            </div>
-
-        </div>
-
-</footer>
+  <footer>
+    <?php include 'components/footer.php'; ?>       
+  </footer>
      
   </main>
   <script src="js/theme.js"></script>

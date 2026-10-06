@@ -12,7 +12,7 @@
 <body onload="carregarUsuario()">
     <header class="header">
         
-    <?php include 'includes/header.php'; ?>
+    <?php include 'components/header.php'; ?>
 
     <div class="card" style="width: 18rem;">
  <br> <br> <img src="img/desconto-placavidio.png" class="card-img-top" alt="imagem 1" width="150px"> 
@@ -38,45 +38,7 @@
   </div>
 </div>
 <footer>
-        <div class="footer-container">
-
-            <div class="footer-col">
-                <h3>Departamentos</h3>
-                <ul>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Computadores</a></li>
-                    <li><a href="#">Cadeiras</a></li>   
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Institucional</h3>
-                <ul>
-                    <li><a href="quemsomos.php">Quem somos</a></li>
-                    <li><a href="#">Localização</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Ajuda</h3>
-                <ul>
-                    <li><a href="entregas.php">Entrega</a></li>
-                    <li><a href="#">Garantia</a></li>
-                    <li><a href="#">Como comprar</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="insta.html"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-x"></i></a>   
-                </div>
-            </div>
-
-        </div>
-
+    <?php include 'components/footer.php'; ?>
 </footer>
 <script src="js/theme.js"></script>
 <script src="js/cadastro.js" defer></script>

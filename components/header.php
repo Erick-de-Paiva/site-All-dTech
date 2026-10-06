@@ -4,9 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 
-<head>
-    <link rel="stylesheet" href="css/header.css">
-</head>
+<link rel="stylesheet" href="css/header.css">
 
 <div class="barra">
     <a href="index.php">

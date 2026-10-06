@@ -17,7 +17,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+body { 
     background-color: var(--bg);
 }
 
@@ -55,17 +55,13 @@ body {
 }
 
 .cards-section {
-  color: aqua;
-  position: relative;
-  font-weight: 700;
-  text-align: center;
-  font-size: 1.6rem;
-  letter-spacing: 1px; 
-}
-
-.cards-section {
-    padding: 50px 0;
+    color: aqua;
+    position: relative;
+    font-weight: 700;
     text-align: center;
+    font-size: 1.6rem;
+    letter-spacing: 1px; 
+    padding: 50px 0;
 }
 
 .cards-section h2 {
@@ -115,16 +111,26 @@ body {
 }
 
 .localizacao {
-    background-color: #222;
+    background-color: #3a3a3a;
     color: #00bcd4;
     text-align: center;
-    padding: 45px 0;
+    padding: 50px 20px;
 }
 
 .localizacao h2 {
-    margin-bottom: 15px;
-    color:  #00bcd4;
-    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #00bcd4;
+}
+
+.endereco-texto {
+    color: #ddd;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .mapa-container {
@@ -132,11 +138,13 @@ body {
   justify-content: center;
 }
 
-.mapa-container iframe{
-  width: 500px;
-  height: 150px;
-  border: 0;
-  border-radius: 10px;
+.mapa-container iframe {
+    width: 100%;
+    max-width: 600px; 
+    height: 200px;    
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .promo {
@@ -159,7 +167,7 @@ body {
     display: flex;
     justify-content: center; 
     flex-wrap: wrap;         
-    gap: 20px;              
+    gap: 20px;               
     overflow-x: visible;   
     padding: 10px 0;
 }
@@ -315,27 +323,16 @@ body.light-mode {
 
 @media (max-width: 678px) {
    .cards-section {
-       margin: 20px 10px;
-       flex-wrap: wrap;
+        margin: 20px 10px;
+        flex-wrap: wrap;
    }
    
    .prodt {
-       margin: 20px 4%;
+        margin: 20px 4%;
    }
 
    .light-mode {
-       background-color: #ffffff !important;
-       color: #000000 !important;
+        background-color: #ffffff !important;
+        color: #000000 !important;
    }
-}
-
-footer {
-    background-color: #111;
-    color: #fff;
-    transition: 0.3s;
-}
-
-body.light-mode footer {
-    background-color: #fff;  
-    color: #000;               
 }

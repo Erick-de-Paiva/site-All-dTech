@@ -11,9 +11,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,100;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/acessibilidade.css">
     <script src="js/carrossel.js"></script>
     <script src="js/acess.js"></script>
     <title>All'Dtech</title>
@@ -21,7 +19,7 @@ session_start();
 
 <body>    
     <header class="header">
-        <?php include 'includes/header.php'; ?>
+        <?php include 'components/header.php'; ?>
     </header>
 
     <main class="main-content">
@@ -176,7 +174,8 @@ session_start();
         </section>
            
         <section class="localizacao">
-            <h2 id="localizacao1">Localização</h2>
+            <h2 id="localizacao1">Onde Estamos</h2>
+            <p class="endereco-texto">Av. Paris, 84 - Bonsucesso, Rio de Janeiro - RJ</p>
 
             <div class="mapa-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.252011705955!2d-43.256086026311074!3d-22.867147136452378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997c03b24d186f%3A0xf3dd300862682520!2sUNISUAM!5e0!3m2!1spt-BR!2sbr!4v1759760222394!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -185,43 +184,7 @@ session_start();
     </main>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Departamentos</h3>
-                <ul>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Computadores</a></li>
-                    <li><a href="#">Monitores</a></li>   
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Institucional</h3>
-                <ul>
-                    <li><a href="quemsomos.php">Quem somos</a></li>
-                    <li><a href="#">Localização</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Ajuda</h3>
-                <ul>
-                    <li><a href="entregas.php">Entrega</a></li>
-                    <li><a href="#">Garantia</a></li>
-                    <li><a href="#">Como comprar</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-x"></i></a>   
-                </div>
-            </div>
-        </div>
+        <?php include 'components/footer.php'; ?>
     </footer>
          
     <script src="js/cadastro.js" defer></script>
