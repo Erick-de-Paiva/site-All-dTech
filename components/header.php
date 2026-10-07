@@ -53,29 +53,37 @@ if (session_status() === PHP_SESSION_NONE) {
 <nav class="menu">
     <ul>
         <li class="submenu-btn">
-            <a href="#">☰</a>
-            <ul class="submenu">
-                <li class="subitem">
-                    <a href="#">Hardware ></a>
-                    <ul class="submenu2">
-                        <li><a href="placa-video.php">Placa de video</a></li>
-                        <li><a href="processador.php">Processador</a></li>
-                    </ul>
-                </li>
-                <li class="subitem">
-                    <a href="#">Monitor Gamer ></a>
-                    <ul class="submenu2">
-                        <li><a href="#">ACER</a></li>
-                        <li><a href="#">LG</a></li>
-                    </ul>
-                </li>
-                <li class="subitem">
-                    <a href="#">Cadeira Gamer</a>
-                    <ul class="submenu2">
-                        <li><a href="#">Cadeira</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <details class="menu-details" name="menu-principal">
+                <summary class="hamburguer-icon">☰</summary>
+                <ul class="submenu">
+                    <li class="subitem">
+                        <details class="sub-details" name="submenu-hardware">
+                            <summary>Hardware ></summary>
+                            <ul class="submenu2">
+                                <li><a href="placa-video.php">Placa de video</a></li>
+                                <li><a href="processador.php">Processador</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="subitem">
+                        <details class="sub-details" name="submenu-hardware">
+                            <summary>Monitor Gamer ></summary>
+                            <ul class="submenu2">
+                                <li><a href="#">ACER</a></li>
+                                <li><a href="#">LG</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="subitem">
+                        <details class="sub-details" name="submenu-hardware">
+                            <summary>Cadeira Gamer</summary>
+                            <ul class="submenu2">
+                                <li><a href="#">Cadeira</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </details>
         </li>
         <li><a href="index.php">HOME</a></li>
         <li><a href="produtos.php">PRODUTOS</a></li>
