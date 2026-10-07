@@ -162,7 +162,7 @@
 .menu {
     background-color: #3a3a3a;
     padding: 12px 0;
-    font-size: 18px; /* Aumentado levemente o tamanho base da barra */
+    font-size: 18px; 
 }
 
 .menu ul {
@@ -175,7 +175,6 @@
     gap: 30px;
 }
 
-/* Links do menu principal e o summary geral */
 .menu li a, 
 .menu summary {
     color: white;
@@ -183,10 +182,9 @@
     text-decoration: none;
     transition: 0.3s;
     cursor: pointer;
-    font-size: 17px; /* Letras principais maiores */
+    font-size: 17px;
 }
 
-/* Efeito hover com a linha rosa nos links principais */
 .menu > ul > li > a:hover,
 .menu-details > summary:hover {
     border-bottom: 2px solid rgb(235, 13, 224);
@@ -202,13 +200,11 @@
     position: relative;
 }
 
-/* Remove a setinha padrão do details */
 .menu-details summary::-webkit-details-marker,
 .sub-details summary::-webkit-details-marker {
     display: none;
 }
 
-/* Ícone do hambúrguer levemente menor do que antes, mas ainda destacado */
 .hamburguer-icon {
     list-style: none;
     font-size: 21px; 
@@ -236,7 +232,6 @@
     width: 100%;
 }
 
-/* Itens internos do Submenu */
 .subitem {
     position: relative;
 }
@@ -244,12 +239,11 @@
 .subitem summary {
     display: block !important;
     padding: 12px 20px;
-    font-size: 16px; /* Letra dos subitens maiores */
+    font-size: 16px; 
     color: white;
     transition: 0.3s;
 }
 
-/* Efeito hover com linha rosa nos itens dos submenus */
 .subitem summary:hover,
 .submenu2 li a:hover {
     border-bottom: 2px solid rgb(235, 13, 224);
@@ -261,7 +255,6 @@
     position: relative;
 }
 
-/* Segundo Nível do Submenu (Vertical, à direita) */
 .submenu2 {
     position: absolute;
     left: 100%; 
@@ -269,7 +262,7 @@
     background: #3a3a3a;
     padding: 15px 0;
     list-style: none;
-    border-radius: 8px; /* Arredondamento da caixa */
+    border-radius: 8px; 
     min-width: 180px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.4);
     z-index: 1000;
@@ -286,7 +279,7 @@
     padding: 12px 20px;
     color: white;
     white-space: nowrap;
-    font-size: 15px; /* Letra do segundo submenu maior */
+    font-size: 15px; 
     transition: 0.3s;
 }
 

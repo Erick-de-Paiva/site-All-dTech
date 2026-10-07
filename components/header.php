@@ -52,7 +52,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <nav class="menu">
     <ul>
-        <li class="submenu-btn">
+        <li class="submenu-btn" id="menuHamburguer">
             <details class="menu-details" name="menu-principal">
                 <summary class="hamburguer-icon">☰</summary>
                 <ul class="submenu">
@@ -91,3 +91,5 @@ if (session_status() === PHP_SESSION_NONE) {
         <li><a href="cupons.php">CUPONS</a></li>
     </ul>
 </nav>
+
+<script src="js/menu.js"></script>
