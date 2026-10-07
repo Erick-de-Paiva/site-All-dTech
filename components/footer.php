@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <div class="footer-container">
     <div class="footer-col">
@@ -18,7 +19,14 @@
             <li><a href="quemsomos.php">Quem somos</a></li>
             <li><a href="#">Localização</a></li>
         </ul>
-        </div>
+    </div>
+
+    <div class="footer-col">
+        <h3>Sistema</h3>
+        <ul>
+            <li><a href="modelo_bd.php">Modelo DER</a></li>
+        </ul>
+    </div>
 
     <div class="footer-col">
         <h3>Ajuda</h3>
