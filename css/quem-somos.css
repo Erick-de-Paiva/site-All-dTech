@@ -18,7 +18,7 @@
     font-size: 3em;
     margin-bottom: 35px;
     color: #00d4ff; 
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
 }
 
 .quem-somos p {
@@ -38,8 +38,8 @@
 
 .quem-somos p:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(235, 13, 224, 0.25);
-    border-color: rgba(235, 13, 224, 0.5);
+    box-shadow: 0 12px 25px rgba(0, 212, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.5);
 }
 
 .quem-somos strong {

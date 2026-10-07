@@ -89,7 +89,7 @@ body {
 
 .cards-section .card {
     width: 360px; 
-    background-color: #121218;
+    background-color: #0f0f0f;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 14px;
     overflow: hidden;
@@ -102,8 +102,8 @@ body {
 
 .cards-section .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 16px 30px rgba(0, 212, 255, 0.35);
-    border-color: rgba(0, 212, 255, 0.6);
+    box-shadow: 0 12px 25px rgba(235, 13, 224, 0.25);
+    border-color: rgba(235, 13, 224, 0.5);
 }
 
 .cards-section .card-img-top {
@@ -375,3 +375,15 @@ body.light-mode,
         margin: 20px 4%;
    }
 }
+
+/* 
+    * Opção AZUL (sombra e borda) para o hover do card de produto:
+
+    box-shadow: 0 12px 25px rgba(0, 212, 255, 0.3) !important;
+    border-color: rgba(0, 212, 255, 0.5) !important;
+
+    * Opção ROSA (sombra e borda) para o hover do card de produto:
+
+    box-shadow: 0 12px 25px rgba(235, 13, 224, 0.25);
+    border-color: rgba(235, 13, 224, 0.5);
+*/

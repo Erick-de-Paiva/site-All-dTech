@@ -16,7 +16,7 @@
     font-family: 'Montserrat', sans-serif !important;
     color: #00d4ff !important;
     margin-bottom: 30px;
-    font-size: 2.2rem !important;
+    font-size: 2.5rem !important;
     font-weight: 700 !important;
     letter-spacing: 1.5px;
     text-shadow: 0 0 12px rgba(0, 212, 255, 0.4) !important;
@@ -33,7 +33,7 @@
 .prodt-card {
     flex: 0 0 240px; 
     width: 240px; 
-    background-color: #121218 !important; 
+    background-color: #0f0f0f !important; 
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 12px !important;
     padding: 20px 15px;
@@ -44,12 +44,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 .prodt-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0, 212, 255, 0.3) !important;
-    border-color: rgba(0, 212, 255, 0.5) !important;
+    box-shadow: 0 12px 25px rgba(235, 13, 224, 0.25) !important;
+    border-color: rgba(235, 13, 224, 0.5) !important;
 }
 
 .prodt-card img,
