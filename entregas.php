@@ -10,13 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,100;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
-  <header class="header">
-    <?php include 'components/header.php'; ?>
-  </header>   
+  
+  <?php include 'components/header.php'; ?>
 
   <main>
     <section id="entregas" class="entregas">
@@ -72,7 +70,6 @@
   </footer>
      
   <script src="js/theme.js"></script>
-  <script src="js/cadastro.js" defer></script>
 </body>
 
 </html>

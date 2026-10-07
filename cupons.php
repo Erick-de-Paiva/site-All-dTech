@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cupons.css">
     <title>Cupons - ALL'DTech</title>
 </head>
 
-<body onload="carregarUsuario()">
-    <header>
-        <?php include 'components/header.php'; ?>
-    </header>
+<body>
+    
+    <?php include 'components/header.php'; ?>
 
     <main class="cupons-main">
         <h1 class="titulo-pagina">Cupons de Desconto</h1>
@@ -50,7 +48,6 @@
     </footer>
 
     <script src="js/theme.js"></script>
-    <script src="js/cadastro.js" defer></script>
 </body>
 
 </html>

@@ -16,26 +16,24 @@ if (!isset($_SESSION['usuario_logado'])) {
 </head>
 <body>
 
-<header>
     <?php include 'components/header.php'; ?>
-</header>
 
-<div class="db-container">
-    <h2>Modelo Entidade-Relacionamento (DER)</h2>
-    <p>Abaixo está representada a modelagem do banco de dados utilizada para este sistema.</p>
-    
-    <div class="db-img-box">
-        <img src="img/modelo_bd.png" alt="Modelo DER do Banco de Dados">
+    <div class="db-container">
+        <h2>Modelo Entidade-Relacionamento (DER)</h2>
+        <p>Abaixo está representada a modelagem do banco de dados utilizada para este sistema.</p>
+        
+        <div class="db-img-box">
+            <img src="img/modelo_bd.png" alt="Modelo DER do Banco de Dados">
+        </div>
+        
+        <br>
+        <a href="index.php" class="btn-voltar">Voltar à Página Principal</a>
     </div>
-    
-    <br>
-    <a href="index.php" class="btn-voltar">Voltar à Página Principal</a>
-</div>
 
-<footer>
-    <?php include 'components/footer.php'; ?>
-</footer>
+    <footer>
+        <?php include 'components/footer.php'; ?>
+    </footer>
 
-<script src="js/theme.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 </html>

@@ -12,11 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,100;1,700&display=swap" rel="stylesheet">
 </head>
 
-<body onload="carregarUsuario()">
+<body>
 
-    <header class="header">
-        <?php include 'components/header.php'; ?>
-    </header>
+    <?php include 'components/header.php'; ?>
 
     <main class="catalogo-main">
         <section class="promo">
@@ -82,7 +80,6 @@
         <?php include 'components/footer.php'; ?>
     </footer>
          
-    <script src="js/cadastro.js" defer></script>
     <script src="js/theme.js"></script>
 </body>
 
