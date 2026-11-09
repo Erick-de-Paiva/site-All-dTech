@@ -96,7 +96,7 @@ async function cadastrar(e) {
         if (resultado.sucesso) {
             showMessage(resultado.mensagem, "ok");
             setTimeout(() => {
-                window.location.href = "login.html";
+                window.location.href = "login.php";
             }, 1500);
         } else {
             showMessage(resultado.mensagem, "err");
