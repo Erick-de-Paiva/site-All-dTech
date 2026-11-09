@@ -1,0 +1,112 @@
+.main-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 0 20px;
+    min-height: calc(100vh - 280px);
+}
+
+.titulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00d4ff;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+}
+
+.form-card {
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.form-card:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+}    
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #ccc;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group input {
+    padding: 12px 15px;
+    background-color: #242424;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #00bcd4;
+}
+
+.btn-submit {
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #0097a7;
+}
+
+.alerta {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.alerta.sucesso {
+    background-color: rgba(0, 200, 0, 0.15);
+    border: 1px solid #00c800;
+    color: #5eff5e;
+}
+
+.alerta.erro {
+    background-color: rgba(255, 82, 82, 0.15);
+    border: 1px solid #ff5252;
+    color: #ff8585;
+}
+
+.input-group input.input-erro {
+    border-color: #ff5252 !important;
+    background-color: rgba(255, 82, 82, 0.05);
+}
+
+.input-group input.input-erro:focus {
+    border-color: #ff5252;
+    box-shadow: 0 0 0 3px rgba(255, 82, 82, 0.15);
+}

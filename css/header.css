@@ -6,21 +6,107 @@
 }
 
 .barra {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
 }
 
+.pesquisa-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: center;
+}
+
 .pesquisa {
     display: flex;
-    width: 35%; 
+    width: 100%;
     align-items: center;
     background-color: #3a3a3a;
     border-radius: 12px;
     overflow: hidden; 
     border: 1px solid rgba(255, 255, 255, 0.10);
     height: 42px; 
+}
+
+.user-dropdown {
+    position: relative;
+    list-style: none;
+}
+
+.user-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.user-dropdown .user-logged-box {
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-left: 4px;
+    transition: transform 0.2s;
+}
+
+.user-dropdown[open] .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.user-menu-popup {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    list-style: none;
+    padding: 8px 0;
+    min-width: 160px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-menu-popup li a {
+    display: block;
+    padding: 10px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.user-menu-popup li a:hover {
+    background-color: rgba(0, 188, 212, 0.15);
+    color: #00bcd4;
+}
+
+.user-menu-popup li a.logout-link {
+    color: #ff6b6b;
+}
+
+.user-menu-popup li a.logout-link:hover {
+    background-color: rgba(255, 107, 107, 0.15);
+    color: #ff5252;
+}
+
+.barra .user-logged-box {
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.barra .user-logged-box:hover {
+    transform: scale(1.05); 
+    background-color: rgba(255, 255, 255, 0.12); 
 }
 
 .pesquisa input {
@@ -47,6 +133,13 @@
 
 .pesquisa button:hover {
     background: #0097a7;
+}
+
+.header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
 .user {
@@ -306,11 +399,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px; 
+    border-radius: 12px; 
     cursor: pointer;
     font-size: 18px; 
     height: 42px; 
-    background: #ffffff20;
+    background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.10);
     color: white;
 }
@@ -433,6 +526,42 @@ body.light-mode .barra .user-logged-box {
 
 body.light-mode .barra .user-logged-box .user-welcome strong {
     color: #007bff;
+}
+
+.pesquisa {
+    display: flex;
+    flex: 1;
+    max-width: 450px;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #3a3a3a;
+    border-radius: 12px;
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    height: 42px; 
+}
+
+.barra .user-logged-box .change-password-link {
+    text-decoration: none;
+    color: #cccccc; 
+    font-weight: 500;
+    margin-left: 8px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.barra .user-logged-box .change-password-link:hover {
+    color: #00bcd4;
+    background-color: rgba(0, 188, 212, 0.1);
+}
+
+body.light-mode .barra .user-logged-box .change-password-link {
+    color: #007bff;
+}
+
+body.light-mode .barra .user-logged-box .change-password-link:hover {
+    background-color: rgba(0, 123, 255, 0.1);
 }
 
 @media (max-width: 678px) {

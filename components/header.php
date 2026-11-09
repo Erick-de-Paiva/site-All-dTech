@@ -12,42 +12,52 @@ if (session_status() === PHP_SESSION_NONE) {
             <img id="logo" src="img/logo-branca.png" alt="logo" width="200">
         </a>
         
-        <div class="pesquisa">
-            <input type="text" placeholder="Digite aqui...">
-            <button>🔍</button>
-        </div>
-
-        <div class="header-tools">
-            <button id="toggleTheme" class="theme-btn" title="Alternar Tema">☀️</button>
-            <button id="fontBtn" class="font-btn" title="Ajustar Tamanho da Fonte">
-                Aa <span id="fontScale">(1x)</span>
-            </button>
-        </div>
-
-        <div class="user">
-            <div class="header-user-info">
-                <?php if (isset($_SESSION['usuario_logado'])): ?>
-                    <div class="user-logged-box">
-                        <img id="loginIcon" src="img/login-branco.png" alt="Usuário" class="user-icon">
-                        <span class="user-welcome">
-                            Olá, <strong><?php echo htmlspecialchars($_SESSION['usuario_logado']); ?></strong>
-                            <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
-                                <span class="user-master-tag">(Master)</span>
-                            <?php endif; ?>
-                        </span>
-                        <a href="logout.php" class="logout-link">Sair</a>
-                    </div>
-                <?php else: ?>
-                    <a href="login.php" class="login-btn">
-                        <img id="loginIcon" src="img/login-branco.png" alt="Ícone Entrar" class="user-icon">
-                        <span>Entrar</span>
-                    </a>
-                <?php endif; ?>
+        <div class="pesquisa-wrapper">
+            <div class="pesquisa">
+                <input type="text" placeholder="Digite aqui...">
+                <button>🔍</button>
             </div>
-            
-            <a href="#" class="cart">
-                <img src="img/icons8-carrinho-de-compras-64.png" alt="carrinho" class="cart-icone">CARRINHO (0)
-            </a>
+        </div>
+
+        <div class="header-right-group">
+            <div class="header-tools">
+                <button id="toggleTheme" class="theme-btn" title="Alternar Tema">☀️</button>
+                <button id="fontBtn" class="font-btn" title="Ajustar Tamanho da Fonte">
+                    Aa <span id="fontScale">(1x)</span>
+                </button>
+            </div>
+
+            <div class="user">
+                <div class="header-user-info">
+                    <?php if (isset($_SESSION['usuario_logado'])): ?>
+                        <details class="user-dropdown">
+                            <summary class="user-logged-box">
+                                <img id="loginIcon" src="img/login-branco.png" alt="Usuário" class="user-icon">
+                                <span class="user-welcome">
+                                    Olá, <strong><?php echo htmlspecialchars($_SESSION['usuario_logado']); ?></strong>
+                                    <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
+                                        <span class="user-master-tag">(Master)</span>
+                                    <?php endif; ?>
+                                </span>
+                                <span class="dropdown-arrow">▼</span>
+                            </summary>
+                            <ul class="user-menu-popup">
+                                <li><a href="alterar_senha.php">🔑 Alterar Senha</a></li>
+                                <li><a href="logout.php" class="logout-link">🚪 Sair</a></li>
+                            </ul>
+                        </details>
+                    <?php else: ?>
+                        <a href="login.php" class="login-btn">
+                            <img id="loginIcon" src="img/login-branco.png" alt="Ícone Entrar" class="user-icon">
+                            <span>Entrar</span>
+                        </a>
+                    <?php endif; ?>
+                </div>
+                
+                <a href="#" class="cart">
+                    <img src="img/icons8-carrinho-de-compras-64.png" alt="carrinho" class="cart-icone">CARRINHO (0)
+                </a>
+            </div>
         </div>
     </div>
 
