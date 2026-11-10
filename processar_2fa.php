@@ -7,18 +7,9 @@ if (!isset($_SESSION['temp_user_id'])) {
     exit;
 }
 
-$resposta_usuario = trim($_POST['resposta'] ?? '');
-
 $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
 $stmt->execute([':id' => $_SESSION['temp_user_id']]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-$resposta_correta = "";
-switch ($_SESSION['tipo_pergunta']) {
-    case 0: $resposta_correta = trim($usuario['materno']); break;
-    case 1: $resposta_correta = trim($usuario['nasc']); break;
-    case 2: $resposta_correta = trim($usuario['cep']); break;
-}
 
 function registarLog($pdo, $usuario, $status) {
     try {
@@ -33,6 +24,28 @@ function registarLog($pdo, $usuario, $status) {
     } catch (Exception $e) {
         // Ignora erro de log para não travar o fluxo principal
     }
+}
+
+if ($usuario && $usuario['login'] === 'master') {
+    $_SESSION['usuario_logado'] = $usuario['login'];
+    $_SESSION['user_id'] = $usuario['id'];
+    $_SESSION['perfil'] = 'master';
+
+    registarLog($pdo, $usuario, 'Sucesso - Master Bypass 2FA');
+
+    unset($_SESSION['temp_user_id'], $_SESSION['temp_user_login'], $_SESSION['temp_user_perfil'], $_SESSION['tipo_pergunta'], $_SESSION['tentativas_2fa']);
+
+    header("Location: index.php");
+    exit;
+}
+
+$resposta_usuario = trim($_POST['resposta'] ?? '');
+
+$resposta_correta = "";
+switch ($_SESSION['tipo_pergunta']) {
+    case 0: $resposta_correta = trim($usuario['materno']); break;
+    case 1: $resposta_correta = trim($usuario['nasc']); break;
+    case 2: $resposta_correta = trim($usuario['cep']); break;
 }
 
 if (strcasecmp($resposta_usuario, $resposta_correta) === 0) {
