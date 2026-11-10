@@ -3,7 +3,7 @@ session_start();
 require_once 'conexao.php';
 
 if (!isset($_SESSION['temp_user_id'])) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit;
 }
 
@@ -68,7 +68,7 @@ if (strcasecmp($resposta_usuario, $resposta_correta) === 0) {
         registarLog($pdo, $usuario, 'Falha - Bloqueado por 3 tentativas no 2FA');
         
         session_destroy();
-        echo "<script>alert('3 tentativas sem sucesso! Favor realizar Login novamente.'); window.location.href='login.html';</script>";
+        echo "<script>alert('3 tentativas sem sucesso! Favor realizar Login novamente.'); window.location.href='login.php';</script>";
         exit;
     } else {
         $restantes = 3 - $_SESSION['tentativas_2fa'];
