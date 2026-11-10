@@ -15,10 +15,12 @@
 
 .entregas h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
-    margin-bottom: 35px;
-    color: #00d4ff; 
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+    color: #00d4ff;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
 }
 
 .entregas h1 strong,

@@ -7,11 +7,11 @@
 
 .titulo-pagina {
     font-family: 'Montserrat', sans-serif;
-    color: #00bcd4;
+    color: #00d4ff;
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 700;
     text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
 }
 

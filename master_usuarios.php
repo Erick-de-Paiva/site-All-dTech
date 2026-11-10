@@ -3,9 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Verifica se está logado E se é o usuário master (ou perfil admin)
 if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== 'master') {
-    // Redireciona para o login ou página inicial caso não tenha permissão
     header("Location: login.php?erro=acesso_negado");
     exit;
 }
@@ -14,13 +12,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_logado'])) {
     header("Location: login.php");
     exit;
 }
 
-// Conexão com o banco de dados
 $host = "localhost";
 $usuario_db = "root";
 $senha_db = "";
@@ -31,7 +27,6 @@ if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-// Lógica de exclusão de usuário
 if (isset($_GET['excluir'])) {
     $id_excluir = $_GET['excluir'];
     $sql_del = "DELETE FROM usuarios WHERE id = ? AND login != 'master'";
@@ -43,7 +38,6 @@ if (isset($_GET['excluir'])) {
     exit;
 }
 
-// Lógica de pesquisa por substring no nome
 $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : "";
 
 if (!empty($pesquisa)) {
@@ -65,16 +59,16 @@ if (!empty($pesquisa)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Master - Consulta de Usuários</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,100;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
     <?php include 'components/header.php'; ?>
 
     <main class="master-container">
-        <h1 class="titulo-secao" style="color: #00d4ff; font-size: 2.2rem; margin-bottom: 15px; text-align: center;">Painel Master - Gestão de Usuários</h1>
+        <h1 class="titulo-secao" style="color: #00d4ff; font-size: 3rem; margin-bottom: 45px; text-align: center; font-weight: 700; text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);">Painel Master - Gestão de Usuários</h1>
         
         <div class="nav-links">
             <a href="master_usuarios.php">👥 Consultar Usuários</a>
