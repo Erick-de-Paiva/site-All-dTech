@@ -1,0 +1,116 @@
+/* Estilos para o Painel Master */
+.master-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: calc(100vh - 280px);
+}
+
+.master-card {
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.master-card:hover {
+    border-color: #00bcd4;
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 12px 15px;
+    background-color: #242424;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-form input:focus {
+    border-color: #00bcd4;
+}
+
+.btn-search {
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-search:hover {
+    background-color: #0097a7;
+}
+
+.tabela-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.tabela-usuarios th, .tabela-usuarios td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ccc;
+    font-size: 14px;
+}
+
+.tabela-usuarios th {
+    color: #00bcd4;
+    font-weight: 600;
+    background-color: #222;
+}
+
+.tabela-usuarios tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.btn-excluir {
+    background-color: rgba(255, 82, 82, 0.15);
+    color: #ff5252;
+    border: 1px solid #ff5252;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-excluir:hover {
+    background-color: #ff5252;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
