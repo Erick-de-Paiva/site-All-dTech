@@ -43,7 +43,8 @@ if (session_status() === PHP_SESSION_NONE) {
                             </summary>
                             <ul class="user-menu-popup">
                                 <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
-                                    <li><a href="master_usuarios.php">⚙️ Painel Master</a></li>
+                                    <li><a href="master_usuarios.php">⚙️ Painel Usuários</a></li>
+                                    <li><a href="master_logs.php">📊 Logs de Acesso</a></li>
                                 <?php endif; ?>
                                 <li><a href="alterar_senha.php">🔑 Alterar Senha</a></li>
                                 <li><a href="logout.php" class="logout-link">🚪 Sair</a></li>
