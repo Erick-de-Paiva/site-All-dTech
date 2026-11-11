@@ -16,8 +16,41 @@ if ($conn->connect_error) {
     die("Erro na conexão: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, usuario_id, nome_usuario, cpf_usuario, data_hora, status_2fa FROM logs_acesso ORDER BY data_hora DESC";
-$resultado = $conn->query($sql);
+$tipo_busca = isset($_GET['tipo_busca']) ? $_GET['tipo_busca'] : 'todos';
+$termo_busca = isset($_GET['termo']) ? trim($_GET['termo']) : '';
+
+$sql = "SELECT l.id, l.usuario_id, l.nome_usuario, l.cpf_usuario, l.data_hora, l.status_2fa 
+        FROM logs_acesso l 
+        JOIN usuarios u ON l.usuario_id = u.id 
+        WHERE u.login != 'master'";
+
+$params = [];
+$types = "";
+
+if ($tipo_busca === 'nome' && !empty($termo_busca)) {
+    $sql .= " AND l.nome_usuario LIKE ?";
+    $params[] = "%" . $termo_busca . "%";
+    $types .= "s";
+} elseif ($tipo_busca === 'cpf' && !empty($termo_busca)) {
+    $sql .= " AND l.cpf_usuario LIKE ?";
+    $params[] = "%" . $termo_busca . "%";
+    $types .= "s";
+} elseif ($tipo_busca === 'todos' && !empty($termo_busca)) {
+    $sql .= " AND (l.nome_usuario LIKE ? OR l.cpf_usuario LIKE ?)";
+    $termo_like = "%" . $termo_busca . "%";
+    $params[] = $termo_like;
+    $params[] = $termo_like;
+    $types .= "ss";
+}
+
+$sql .= " ORDER BY l.data_hora DESC";
+
+$stmt = $conn->prepare($sql);
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+$stmt->execute();
+$resultado = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +75,21 @@ $resultado = $conn->query($sql);
         </div>
 
         <div class="master-card">
+            <form method="GET" class="search-form" style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
+                <select name="tipo_busca" style="padding: 12px 15px; background-color: #242424; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #fff; outline: none;">
+                    <option value="todos" <?php echo ($tipo_busca === 'todos') ? 'selected' : ''; ?>>Todos / Geral</option>
+                    <option value="nome" <?php echo ($tipo_busca === 'nome') ? 'selected' : ''; ?>>Nome do Usuário</option>
+                    <option value="cpf" <?php echo ($tipo_busca === 'cpf') ? 'selected' : ''; ?>>CPF do Usuário</option>
+                </select>
+                
+                <input type="text" name="termo" placeholder="Digite o termo para buscar..." value="<?php echo htmlspecialchars($termo_busca); ?>" style="flex: 1; min-width: 200px;">
+                
+                <button type="submit" class="btn-search">Filtrar Logs</button>
+                <?php if (!empty($termo_busca)): ?>
+                    <a href="master_logs.php" style="padding: 12px 20px; background-color: #444; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center;">Limpar</a>
+                <?php endif; ?>
+            </form>
+
             <table class="tabela-usuarios">
                 <thead>
                     <tr>
@@ -67,7 +115,7 @@ $resultado = $conn->query($sql);
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="6" style="text-align: center; color: #888; padding: 20px;">Nenhum registro de log encontrado.</td>
+                            <td colspan="6" style="text-align: center; color: #888; padding: 20px;">Nenhum registro de log encontrado para os critérios informados.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -82,3 +130,7 @@ $resultado = $conn->query($sql);
     <script src="js/theme.js"></script>
 </body>
 </html>
+<?php 
+if (isset($stmt)) $stmt->close();
+$conn->close();
+?>

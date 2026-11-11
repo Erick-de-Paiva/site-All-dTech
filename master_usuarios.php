@@ -8,15 +8,6 @@ if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== 'mast
     exit;
 }
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION['usuario_logado'])) {
-    header("Location: login.php");
-    exit;
-}
-
 $host = "localhost";
 $usuario_db = "root";
 $senha_db = "";
@@ -41,14 +32,14 @@ if (isset($_GET['excluir'])) {
 $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : "";
 
 if (!empty($pesquisa)) {
-    $sql = "SELECT id, nome, login, email, cpf, data_cadastro FROM usuarios WHERE nome LIKE ?";
+    $sql = "SELECT id, nome, login, email, cpf, data_cadastro FROM usuarios WHERE login != 'master' AND nome LIKE ?";
     $stmt = $conn->prepare($sql);
     $termo = "%" . $pesquisa . "%";
     $stmt->bind_param("s", $termo);
     $stmt->execute();
     $resultado = $stmt->get_result();
 } else {
-    $sql = "SELECT id, nome, login, email, cpf, data_cadastro FROM usuarios";
+    $sql = "SELECT id, nome, login, email, cpf, data_cadastro FROM usuarios WHERE login != 'master'";
     $resultado = $conn->query($sql);
 }
 ?>
@@ -77,7 +68,7 @@ if (!empty($pesquisa)) {
 
         <div class="master-card">
             <form method="GET" class="search-form">
-                <input type="text" name="pesquisa" placeholder="Pesquisar por parte do nome do usuário..." value="<?php echo htmlspecialchars($pesquisa); ?>">
+                <input type="text" name="pesquisa" placeholder="Pesquisar por parte do nome do usuário comum..." value="<?php echo htmlspecialchars($pesquisa); ?>">
                 <button type="submit" class="btn-search">Pesquisar</button>
             </form>
 
@@ -109,7 +100,7 @@ if (!empty($pesquisa)) {
                             <?php endwhile; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="6" style="text-align: center; padding: 20px; color: #888;">Nenhum usuário encontrado.</td>
+                                <td colspan="6" style="text-align: center; padding: 20px; color: #888;">Nenhum usuário comum encontrado.</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>
