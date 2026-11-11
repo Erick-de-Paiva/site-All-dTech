@@ -39,35 +39,6 @@ if ($resultado && $resultado->num_rows === 1) {
 
     if (password_verify($senha, $usuario['senha'])) {
         
-        if ($usuario['login'] === 'master') {
-            $_SESSION['usuario_logado'] = $usuario['login'];
-            $_SESSION['user_id'] = $usuario['id'];
-            $_SESSION['perfil'] = 'master';
-
-            try {
-                $sqlLog = "INSERT INTO logs_acesso (usuario_id, nome_usuario, cpf_usuario, status_2fa) VALUES (?, ?, ?, ?)";
-                $stmtLog = $conn->prepare($sqlLog);
-                if ($stmtLog) {
-                    $idUser = $usuario['id'];
-                    $nomeUser = $usuario['nome'] ?? $usuario['login'];
-                    $cpfUser = $usuario['cpf'] ?? '000.000.000-00';
-                    $statusLog = 'Sucesso - Master Bypass Login';
-                    $stmtLog->bind_param("isss", $idUser, $nomeUser, $cpfUser, $statusLog);
-                    $stmtLog->execute();
-                    $stmtLog->close();
-                }
-            } catch (Exception $e) {
-                // Ignora erro de log para não travar o fluxo
-            }
-
-            echo json_encode([
-                'sucesso' => true, 
-                'mensagem' => 'Login master validado com sucesso!',
-                'redirecionar' => 'index.php'
-            ]);
-            exit;
-        }
-
         $_SESSION['temp_user_id'] = $usuario['id'];
         $_SESSION['temp_user_login'] = $usuario['login'];
         $_SESSION['temp_user_perfil'] = $usuario['perfil'] ?? 'comum'; 
