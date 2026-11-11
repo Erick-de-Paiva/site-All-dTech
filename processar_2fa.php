@@ -26,19 +26,6 @@ function registarLog($pdo, $usuario, $status) {
     }
 }
 
-if ($usuario && $usuario['login'] === 'master') {
-    $_SESSION['usuario_logado'] = $usuario['login'];
-    $_SESSION['user_id'] = $usuario['id'];
-    $_SESSION['perfil'] = 'master';
-
-    registarLog($pdo, $usuario, 'Sucesso - Master Bypass 2FA');
-
-    unset($_SESSION['temp_user_id'], $_SESSION['temp_user_login'], $_SESSION['temp_user_perfil'], $_SESSION['tipo_pergunta'], $_SESSION['tentativas_2fa']);
-
-    header("Location: index.php");
-    exit;
-}
-
 $resposta_usuario = trim($_POST['resposta'] ?? '');
 
 $resposta_correta = "";
@@ -49,7 +36,6 @@ switch ($_SESSION['tipo_pergunta']) {
 }
 
 if (strcasecmp($resposta_usuario, $resposta_correta) === 0) {
-    // 2FA Sucesso! Promover sessão temporária a definitiva
     $_SESSION['usuario_logado'] = $usuario['login'];
     $_SESSION['user_id'] = $usuario['id'];
     $_SESSION['perfil'] = $usuario['perfil'];
