@@ -23,14 +23,29 @@ if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-if (isset($_GET['excluir'])) {
-    $id_excluir = $_GET['excluir'];
-    $sql_del = "DELETE FROM usuarios WHERE id = ? AND login != 'master'";
-    $stmt_del = $conn->prepare($sql_del);
-    $stmt_del->bind_param("i", $id_excluir);
-    $stmt_del->execute();
-    $stmt_del->close();
-    header("Location: master_usuarios.php");
+if (empty($_SESSION['token_exclusao'])) {
+    $_SESSION['token_exclusao'] = bin2hex(random_bytes(32));
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir'])) {
+
+    $id_excluir = filter_input(INPUT_POST, 'excluir', FILTER_VALIDATE_INT);
+    $token = $_POST['token'] ?? '';
+
+    if (!$token || !hash_equals($_SESSION['token_exclusao'], $token)) {
+        die("Solicitação inválida.");
+    }
+
+    if ($id_excluir && $id_excluir > 0) {
+        $sql_del = "DELETE FROM usuarios WHERE id = ? AND login != 'master'";
+        $stmt_del = $conn->prepare($sql_del);
+        $stmt_del->bind_param("i", $id_excluir);
+        $stmt_del->execute();
+        $stmt_del->close();
+    }
+
+    $pesquisa_atual = $_POST['pesquisa'] ?? '';
+    header("Location: master_usuarios.php?pesquisa=" . urlencode($pesquisa_atual));
     exit;
 }
 
@@ -99,7 +114,12 @@ if (!empty($pesquisa)) {
                                     <td><?php echo htmlspecialchars($row['email']); ?></td>
                                     <td><?php echo htmlspecialchars($row['cpf']); ?></td>
                                     <td>
-                                        <a href="master_usuarios.php?excluir=<?php echo $row['id']; ?>" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                                        <form method="POST" action="master_usuarios.php" onsubmit="return confirm('Tem certeza que deseja excluir este usuário?');">
+                                            <input type="hidden" name="excluir" value="<?php echo $row['id']; ?>">
+                                            <input type="hidden" name="token" value="<?php echo htmlspecialchars($_SESSION['token_exclusao'], ENT_QUOTES, 'UTF-8'); ?>">
+                                            <input type="hidden" name="pesquisa" value="<?php echo htmlspecialchars($pesquisa, ENT_QUOTES, 'UTF-8'); ?>">
+                                            <button type="submit" class="btn-excluir">Excluir</button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>

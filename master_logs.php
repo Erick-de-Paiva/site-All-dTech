@@ -1,8 +1,13 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== 'master' || (isset($_SESSION['perfil']) && $_SESSION['perfil'] !== 'master')) {
+if (!isset($_SESSION['usuario_logado'])) {
     header("Location: login.php");
+    exit;
+}
+
+if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] !== 'master') {
+    header("Location: index.php");
     exit;
 }
 
@@ -21,8 +26,8 @@ $termo_busca = isset($_GET['termo']) ? trim($_GET['termo']) : '';
 
 $sql = "SELECT l.id, l.usuario_id, l.nome_usuario, l.cpf_usuario, l.data_hora, l.status_2fa 
         FROM logs_acesso l 
-        JOIN usuarios u ON l.usuario_id = u.id 
-        WHERE u.login != 'master'";
+        LEFT JOIN usuarios u ON l.usuario_id = u.id 
+        WHERE (u.login != 'master' OR u.id IS NULL)";
 
 $params = [];
 $types = "";
