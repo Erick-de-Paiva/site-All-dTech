@@ -61,3 +61,26 @@ body {
 .btn-submit:hover {
     background-color: #0056b3;
 }
+
+#msgBox.msg {
+    display: block;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    color: #842029;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    box-sizing: border-box;
+}
+
+#msgBox.msg:empty {
+    display: none !important;
+}
+
+#msgBox.msg-oculta {
+    display: none !important;
+}

@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once 'conexao.php';
@@ -11,9 +12,26 @@ $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
 $stmt->execute([':id' => $_SESSION['temp_user_id']]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+if (!$usuario) {
+    unset(
+        $_SESSION['temp_user_id'],
+        $_SESSION['temp_user_login'],
+        $_SESSION['temp_user_perfil'],
+        $_SESSION['tipo_pergunta'],
+        $_SESSION['tentativas_2fa']
+    );
+
+    $_SESSION['mensagem_login'] = 'Não foi possível validar o usuário. Faça login novamente.';
+    header("Location: login.php");
+    exit;
+}
+
 function registarLog($pdo, $usuario, $status) {
     try {
-        $sqlLog = "INSERT INTO logs_acesso (usuario_id, nome_usuario, cpf_usuario, status_2fa) VALUES (:id, :nome, :cpf, :status)";
+        $sqlLog = "INSERT INTO logs_acesso
+                   (usuario_id, nome_usuario, cpf_usuario, status_2fa)
+                   VALUES (:id, :nome, :cpf, :status)";
+
         $stmtLog = $pdo->prepare($sqlLog);
         $stmtLog->execute([
             ':id' => $usuario['id'],
@@ -22,43 +40,92 @@ function registarLog($pdo, $usuario, $status) {
             ':status' => $status
         ]);
     } catch (Exception $e) {
-        // Ignora erro de log para não travar o fluxo principal
+        error_log('Erro ao registrar log 2FA: ' . $e->getMessage());
     }
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: 2fa.php");
+    exit;
 }
 
 $resposta_usuario = trim($_POST['resposta'] ?? '');
 
-$resposta_correta = "";
+if ($resposta_usuario === '') {
+    $_SESSION['mensagem_2fa'] = 'Digite sua resposta para continuar.';
+    header("Location: 2fa.php");
+    exit;
+}
+
+$resposta_correta = '';
+
 switch ($_SESSION['tipo_pergunta']) {
-    case 0: $resposta_correta = trim($usuario['materno']); break;
-    case 1: $resposta_correta = trim($usuario['nasc']); break;
-    case 2: $resposta_correta = trim($usuario['cep']); break;
+    case 0:
+        $resposta_correta = trim($usuario['materno']);
+        break;
+
+    case 1:
+        $resposta_correta = date('d/m/Y', strtotime($usuario['nasc']));
+        break;
+
+    case 2:
+        $resposta_correta = trim($usuario['cep']);
+        break;
+
+    default:
+        header("Location: login.php");
+        exit;
 }
 
 if (strcasecmp($resposta_usuario, $resposta_correta) === 0) {
+
     $_SESSION['usuario_logado'] = $usuario['login'];
     $_SESSION['user_id'] = $usuario['id'];
     $_SESSION['perfil'] = $usuario['perfil'];
 
     registarLog($pdo, $usuario, 'Sucesso - 2FA Aprovado');
 
-    unset($_SESSION['temp_user_id'], $_SESSION['temp_user_login'], $_SESSION['temp_user_perfil'], $_SESSION['tipo_pergunta'], $_SESSION['tentativas_2fa']);
+    unset(
+        $_SESSION['temp_user_id'],
+        $_SESSION['temp_user_login'],
+        $_SESSION['temp_user_perfil'],
+        $_SESSION['tipo_pergunta'],
+        $_SESSION['tentativas_2fa'],
+        $_SESSION['mensagem_2fa']
+    );
 
     header("Location: index.php");
     exit;
 
 } else {
+
     $_SESSION['tentativas_2fa']++;
 
     if ($_SESSION['tentativas_2fa'] >= 3) {
+
         registarLog($pdo, $usuario, 'Falha - Bloqueado por 3 tentativas no 2FA');
-        
-        session_destroy();
-        echo "<script>alert('3 tentativas sem sucesso! Favor realizar Login novamente.'); window.location.href='login.php';</script>";
+
+        unset(
+            $_SESSION['temp_user_id'],
+            $_SESSION['temp_user_login'],
+            $_SESSION['temp_user_perfil'],
+            $_SESSION['tipo_pergunta'],
+            $_SESSION['tentativas_2fa']
+        );
+
+        $_SESSION['mensagem_login'] = '3 tentativas sem sucesso! Favor realizar Login novamente.';
+
+        header("Location: login.php");
         exit;
+
     } else {
+
         $restantes = 3 - $_SESSION['tentativas_2fa'];
-        echo "<script>alert('Resposta incorreta! Você tem mais $restantes tentativa(s).'); window.location.href='2fa.php';</script>";
+
+        $_SESSION['mensagem_2fa'] =
+            "Resposta incorreta! Você ainda tem $restantes tentativa(s).";
+
+        header("Location: 2fa.php");
         exit;
     }
 }

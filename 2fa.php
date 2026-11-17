@@ -12,6 +12,9 @@ if (!isset($_SESSION['tipo_pergunta'])) {
     $_SESSION['tentativas_2fa'] = 0;
 }
 
+$mensagem = $_SESSION['mensagem_2fa'] ?? '';
+unset($_SESSION['mensagem_2fa']);
+
 $stmt = $pdo->prepare("SELECT materno, nasc, cep FROM usuarios WHERE id = :id");
 $stmt->execute([':id' => $_SESSION['temp_user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -22,7 +25,7 @@ switch ($_SESSION['tipo_pergunta']) {
         $texto_pergunta = "Qual o nome da sua mãe?";
         break;
     case 1:
-        $texto_pergunta = "Qual a sua data de nascimento? (AAAA-MM-DD)";
+        $texto_pergunta = "Qual a sua data de nascimento? (DD/MM/AAAA)";
         break;
     case 2:
         $texto_pergunta = "Qual o CEP do seu endereço?";
@@ -51,7 +54,11 @@ switch ($_SESSION['tipo_pergunta']) {
             <button type="submit" class="btn-submit">Validar Resposta</button>
         </form>
         
-        <div id="msgBox" class="msg"></div>
+        <div id="msgBox" class="msg <?php echo empty($mensagem) ? 'msg-oculta' : ''; ?>" role="alert">
+            <?php if ($mensagem): ?>
+                <?php echo htmlspecialchars($mensagem, ENT_QUOTES, 'UTF-8'); ?>
+            <?php endif; ?>
+        </div>
     </div>
 </body>
 </html>

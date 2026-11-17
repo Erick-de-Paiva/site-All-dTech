@@ -2,6 +2,8 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+$mensagem = $_SESSION['mensagem_login'] ?? '';
+unset($_SESSION['mensagem_login']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -21,7 +23,11 @@ if (session_status() === PHP_SESSION_NONE) {
         <h1 class="titulo-secao">Acessar Sistema</h1>
 
         <div class="form-card">
-            <div id="msgBox" class="msg"></div>
+            <div id="msgBox" class="msg" role="alert">
+                <?php if ($mensagem): ?>
+                    <?php echo htmlspecialchars($mensagem, ENT_QUOTES, 'UTF-8'); ?>
+                <?php endif; ?>
+            </div>
 
             <form onsubmit="entrar(event)" class="auth-form">
                 <div class="input-group">
