@@ -92,6 +92,10 @@ if (!empty($pesquisa)) {
                 <button type="submit" class="btn-search">Pesquisar</button>
             </form>
 
+            <button type="button" class="btn-pdf" onclick="window.print()">
+                Baixar PDF
+            </button>
+
             <div style="overflow-x: auto;">
                 <table class="tabela-usuarios">
                     <thead>
