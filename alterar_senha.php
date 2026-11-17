@@ -8,6 +8,11 @@ if (!isset($_SESSION['usuario_logado'])) {
     exit;
 }
 
+if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] !== 'comum') {
+    header("Location: index.php");
+    exit;
+}
+
 $mensagem = "";
 $tipo_alerta = "";
 $erro_senha_atual = false;

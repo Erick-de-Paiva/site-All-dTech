@@ -42,11 +42,13 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <span class="dropdown-arrow">▼</span>
                             </summary>
                             <ul class="user-menu-popup">
-                                <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
+                               <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] === 'master'): ?>
                                     <li><a href="master_usuarios.php">⚙️ Painel Usuários</a></li>
                                     <li><a href="master_logs.php">📊 Logs de Acesso</a></li>
+                                <?php else: ?>
+                                    <li><a href="alterar_senha.php">🔑 Alterar Senha</a></li>
                                 <?php endif; ?>
-                                <li><a href="alterar_senha.php">🔑 Alterar Senha</a></li>
+
                                 <li><a href="logout.php" class="logout-link">🚪 Sair</a></li>
                             </ul>
                         </details>
