@@ -21,7 +21,6 @@ if (session_status() === PHP_SESSION_NONE) {
         <h1 class="titulo-secao">Cadastro de Usuário</h1>
 
         <div class="form-card">
-            <div id="msgBox" class="msg"></div>
 
             <form onsubmit="cadastrar(event)" class="auth-form">
                 <div class="input-group">
@@ -126,6 +125,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     <button type="submit" class="btn-submit">Enviar</button>
                     <button type="reset" class="btn-secondary">Limpar</button>
                 </div>
+
+                <div id="msgBox" class="msg"></div>
             </form>
 
             <p style="text-align:center; margin-top:20px; color: #ccc; font-size: 1.3rem;">
