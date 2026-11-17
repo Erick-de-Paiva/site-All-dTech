@@ -3,8 +3,13 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== 'master') {
-    header("Location: login.php?erro=acesso_negado");
+if (!isset($_SESSION['usuario_logado'])) {
+    header("Location: login.php");
+    exit;
+}
+
+if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] !== 'master') {
+    header("Location: index.php");
     exit;
 }
 
