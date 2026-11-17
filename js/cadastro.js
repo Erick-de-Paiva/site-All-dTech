@@ -79,7 +79,8 @@ async function cadastrar(e) {
         numero: document.getElementById("numero").value,
         complemento: document.getElementById("complemento").value,
         login: document.getElementById("login").value,
-        senha: document.getElementById("senha").value
+        senha: document.getElementById("senha").value,
+        senha2: document.getElementById("senha2").value
     };
 
     try {
@@ -164,25 +165,59 @@ function maskCPF(value) {
 }
 
 function maskTelefoneCel(value) {
-    value = value.replace(/\D/g, "");
+    let numeros = value.replace(/\D/g, "");
 
-    if (value.length > 0) value = "+" + value;
-    if (value.length > 3) value = value.replace(/(\+\d{2})(\d)/, "$1($2");
-    if (value.length > 6) value = value.replace(/(\+\d{2}\(\d{2})(\d)/, "$1)$2");
-    if (value.length > 11) value = value.replace(/(\d{5})(\d)/, "$1-$2");
+    if (numeros.startsWith("55")) {
+        numeros = numeros.substring(2);
+    }
 
-    return value.substring(0, 17);
+    numeros = numeros.substring(0, 11);
+
+    if (numeros.length === 0) return "";
+
+    let resultado = "+55";
+
+    if (numeros.length > 0) {
+        resultado += "(" + numeros.substring(0, 2);
+    }
+
+    if (numeros.length >= 3) {
+        resultado += ")" + numeros.substring(2, 7);
+    }
+
+    if (numeros.length >= 8) {
+        resultado += "-" + numeros.substring(7, 11);
+    }
+
+    return resultado;
 }
 
 function maskTelefoneFixo(value) {
-    value = value.replace(/\D/g, "");
+    let numeros = value.replace(/\D/g, "");
 
-    if (value.length > 0) value = "+" + value;
-    if (value.length > 3) value = value.replace(/(\+\d{2})(\d)/, "$1($2");
-    if (value.length > 6) value = value.replace(/(\+\d{2}\(\d{2})(\d)/, "$1)$2");
-    if (value.length > 10) value = value.replace(/(\d{4})(\d)/, "$1-$2");
+    if (numeros.startsWith("55")) {
+        numeros = numeros.substring(2);
+    }
 
-    return value.substring(0, 16);
+    numeros = numeros.substring(0, 10);
+
+    if (numeros.length === 0) return "";
+
+    let resultado = "+55";
+
+    if (numeros.length > 0) {
+        resultado += "(" + numeros.substring(0, 2);
+    }
+
+    if (numeros.length >= 3) {
+        resultado += ")" + numeros.substring(2, 6);
+    }
+
+    if (numeros.length >= 7) {
+        resultado += "-" + numeros.substring(6, 10);
+    }
+
+    return resultado;
 }
 
 document.addEventListener("input", function (e) {
@@ -253,12 +288,12 @@ function validarCampo(id) {
         return false;
     }
 
-    if (id === "celular" && !/^\+\d{2}\(\d{2}\)\d{5}-\d{4}$/.test(valor)) {
+    if (id === "celular" && !/^\+55\(\d{2}\)\d{5}-\d{4}$/.test(valor)) {
         mostrarErro(id, mensagensErro[id]);
         return false;
     }
 
-    if (id === "fixo" && !/^\+\d{2}\(\d{2}\)\d{4}-\d{4}$/.test(valor)) {
+    if (id === "fixo" && !/^\+55\(\d{2}\)\d{4}-\d{4}$/.test(valor)) {
         mostrarErro(id, mensagensErro[id]);
         return false;
     }
