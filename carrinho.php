@@ -131,7 +131,7 @@ foreach ($itens as $item) {
                         <img src="<?php echo htmlspecialchars($item['img']); ?>" alt="">
                         <div class="carrinho-info">
                             <p><strong><?php echo htmlspecialchars($item['nome']); ?></strong></p>
-                            <p><?php echo formatar($item['preco']); ?> &times; <?php echo (int) $item['qtd']; ?></p>
+                            <p><?php echo formatar($item['preco']); ?> &times; <strong><?php echo (int) $item['qtd']; ?></strong></p>
                         </div>
                         <div class="carrinho-sub"><?php echo formatar($item['preco'] * $item['qtd']); ?></div>
                         <form method="POST" action="carrinho.php">
