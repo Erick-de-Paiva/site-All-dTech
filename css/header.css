@@ -1,38 +1,216 @@
+
+/* ========================================
+   CABEÇALHO PRINCIPAL
+======================================== */
+
 .header {
     width: 100%;
-    background-color: #222; 
+    background-color: #222;
     font-family: 'Poppins', sans-serif;
     color: white;
 }
 
+/* ========================================
+   PRIMEIRA LINHA DO CABEÇALHO
+======================================== */
+
 .barra {
     position: relative;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px) minmax(0, 1fr);
     align-items: center;
-    padding: 15px 40px;
+    min-height: 90px;
+    padding: 10px 40px;
+    gap: 20px;
 }
 
-.pesquisa-wrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 420px;
+/* LOGO */
+
+.logo-area {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+#logo {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========================================
+   BARRA DE PESQUISA
+======================================== */
+
+.pesquisa-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
 }
 
 .pesquisa {
     display: flex;
-    width: 100%;
     align-items: center;
+    width: 100%;
+    height: 44px;
     background-color: #3a3a3a;
     border-radius: 12px;
-    overflow: hidden; 
+    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.10);
-    height: 42px; 
 }
+
+.pesquisa input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 14px;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    border: none;
+    outline: none;
+}
+
+.pesquisa input::placeholder {
+    color: #999;
+}
+
+.pesquisa button {
+    height: 100%;
+    min-width: 48px;
+    padding: 0 14px;
+    background: #00bcd4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.pesquisa button:hover {
+    background: #0097a7;
+}
+
+/* ========================================
+   ÁREA DIREITA
+======================================== */
+
+.header-right-group {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    min-width: 0;
+}
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* BOTÕES DE TEMA E FONTE */
+
+.barra .theme-btn,
+.barra .font-btn {
+    height: 42px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.barra .theme-btn:hover,
+.barra .font-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.barra .theme-btn {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.barra .font-btn {
+    gap: 4px;
+    font-weight: bold;
+}
+
+.barra .font-btn #fontScale {
+    font-size: 10px;
+    opacity: 0.7;
+    font-weight: normal;
+}
+
+/* ========================================
+   USUÁRIO E LOGIN
+======================================== */
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.header-user-info {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: white;
+}
+
+/* BOTÃO ENTRAR */
+
+.barra .login-btn {
+    height: 42px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.barra .login-btn .user-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.barra .login-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* USUÁRIO LOGADO */
 
 .user-dropdown {
     position: relative;
@@ -43,15 +221,59 @@
     display: none;
 }
 
-.user-dropdown .user-logged-box {
+.barra .user-logged-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 12px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
     cursor: pointer;
     user-select: none;
+    white-space: nowrap;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.barra .user-logged-box:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.barra .user-logged-box .user-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.barra .user-logged-box .user-welcome strong {
+    color: #00bcd4;
+    font-weight: 600;
+}
+
+.user-master-tag {
+    color: #ffc107;
+    font-size: 11px;
+    margin-left: 3px;
 }
 
 .dropdown-arrow {
     font-size: 10px;
     opacity: 0.7;
-    margin-left: 4px;
+    margin-left: 3px;
     transition: transform 0.2s;
 }
 
@@ -59,29 +281,34 @@
     transform: rotate(180deg);
 }
 
+/* ========================================
+   MENU DROPDOWN DO USUÁRIO
+======================================== */
+
 .user-menu-popup {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    margin: 0;
+    padding: 8px 0;
     background-color: #2a2a2a;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
     list-style: none;
-    padding: 8px 0;
-    min-width: 160px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
 }
 
 .user-menu-popup li a {
     display: block;
     padding: 10px 16px;
-    color: #ffffff;
+    color: white;
     text-decoration: none;
     font-size: 14px;
-    transition: background 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .user-menu-popup li a:hover {
@@ -98,186 +325,92 @@
     color: #ff5252;
 }
 
-.barra .user-logged-box {
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.barra .user-logged-box:hover {
-    transform: scale(1.05); 
-    background-color: rgba(255, 255, 255, 0.12); 
-}
-
-.pesquisa input {
-    flex: 1;
-    padding: 0 14px; 
-    background-color: transparent;
-    color: white;
-    font-size: 15px; 
-    border: none;
-    outline: none;
-    height: 100%;
-}
-
-.pesquisa button {
-    background: #00bcd4;
-    color: white;
-    border: none;
-    padding: 0 16px; 
-    cursor: pointer;
-    font-size: 16px;
-    height: 100%;
-    transition: background 0.3s;
-}
-
-.pesquisa button:hover {
-    background: #0097a7;
-}
-
-.header-right-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-}
-
-.user {
-    display: flex;        
-    align-items: center;
-    gap: 15px;            
-}
-
-.header-user-info {
-    color: white;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 15px;
-}
-
-.user-master-tag {
-    color: #ffc107;
-    font-size: 12px;
-    margin-left: 5px;
-}
-
-.logout-link {
-    color: white;
-    text-decoration: underline;
-}
-
-.login {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: white !important;    
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.login:hover {
-    color: var(--main-color);    
-}
-
-.user-icon {
-    width: 40px;
-    height: 40px;
-}
+/* ========================================
+   CARRINHO
+======================================== */
 
 .user .cart {
-    background-color: #2e7d32; 
-    padding: 9px 16px;
-    border-radius: 8px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    height: 42px;
+    padding: 0 14px;
     width: fit-content;
+    background-color: #2e7d32;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .user .cart:hover {
-    background-color: #388e3c; 
+    background-color: #388e3c;
     transform: translateY(-1px);
 }
 
 .cart-icone {
-    width: 22px;  
-    height: 22px;
+    width: 23px;
+    height: 23px;
     object-fit: contain;
 }
 
-.theme-btn {
-    position: relative; 
-    right: 0;
-    margin-left: 15px;
-    cursor: pointer;
-    background: #ffffff20;
-    border: 1px solid #ffffff55;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 20px;
-    color: white;
-    transition: 0.3s ease;
+/* HOVER DOS BOTÕES DO CABEÇALHO */
+
+.barra .theme-btn,
+.barra .font-btn,
+.barra .login-btn {
+    transition: all 0.25s ease;
 }
 
-.theme-btn:hover {
-    transform: scale(1.08);
+.barra .theme-btn:hover,
+.barra .font-btn:hover,
+.barra .login-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.font-btn {
-    position: relative;
-    margin-left: 10px;
-    cursor: pointer;
-    background: #ffffff20;
-    border: 1px solid #ffffff55;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 20px;
-    color: white;
-    transition: 0.3s ease;
+.barra .theme-btn:active,
+.barra .font-btn:active,
+.barra .login-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
-.font-btn:hover {
-    transform: scale(1.08);
-}
-
-.light-mode .header {
-    background-color: #f1f1f1 !important;
-}
-
-.light-mode .menu {
-    background-color: #e0e0e0 !important;
-}
-
-.light-mode .theme-btn,
-.light-mode .font-btn {
-    background: #00000020;
-    color: black;
-    border: 1px solid #00000055;
-}
+/* ========================================
+   MENU INFERIOR
+======================================== */
 
 .menu {
-    background-color: #3a3a3a;
-    padding: 12px 0;
-    font-size: 18px; 
-}
-
-.menu ul {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 30px;
+    min-height: 44px;
+    padding: 7px 15px;
+    background-color: #3a3a3a;
+    font-size: 18px;
 }
 
-.menu li a, 
+.menu > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu li a,
 .menu summary {
     color: white;
     font-weight: bold;
@@ -287,12 +420,18 @@
     font-size: 17px;
 }
 
+/* EFEITO ROSA ORIGINAL */
+
 .menu > ul > li > a:hover,
 .menu-details > summary:hover {
     border-bottom: 2px solid rgb(235, 13, 224);
     padding-bottom: 5px;
     font-size: 19px;
 }
+
+/* ========================================
+   MENU HAMBÚRGUER
+======================================== */
 
 .submenu-btn {
     position: relative;
@@ -309,29 +448,33 @@
 
 .hamburguer-icon {
     list-style: none;
-    font-size: 21px; 
+    font-size: 21px !important;
 }
+
+/* ========================================
+   PRIMEIRO SUBMENU
+======================================== */
 
 .submenu {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #3a3a3a;
-    list-style: none;
-    padding: 15px 0;
-    margin-top: 8px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
     z-index: 999;
-    min-width: 240px;
     display: flex;
     flex-direction: column;
+    min-width: 240px;
+    margin-top: 8px;
+    padding: 15px 0;
+    background: #3a3a3a;
+    border-radius: 5px;
+    list-style: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .submenu li {
-    display: block !important;
-    padding: 0;
+    display: block;
     width: 100%;
+    padding: 0;
 }
 
 .subitem {
@@ -339,12 +482,14 @@
 }
 
 .subitem summary {
-    display: block !important;
+    display: block;
     padding: 12px 20px;
-    font-size: 16px; 
     color: white;
+    font-size: 16px;
     transition: 0.3s;
 }
+
+/* EFEITO ROSA NOS SUBMENUS */
 
 .subitem summary:hover,
 .submenu2 li a:hover {
@@ -353,23 +498,27 @@
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* ========================================
+   SEGUNDO SUBMENU
+======================================== */
+
 .sub-details {
     position: relative;
 }
 
 .submenu2 {
     position: absolute;
-    left: 100%; 
+    left: 100%;
     top: 0;
-    background: #3a3a3a;
-    padding: 15px 0;
-    list-style: none;
-    border-radius: 8px; 
-    min-width: 180px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
     z-index: 1000;
     display: flex;
     flex-direction: column;
+    min-width: 180px;
+    padding: 15px 0;
+    background: #3a3a3a;
+    border-radius: 8px;
+    list-style: none;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 .submenu2 li {
@@ -381,9 +530,11 @@
     padding: 12px 20px;
     color: white;
     white-space: nowrap;
-    font-size: 15px; 
+    font-size: 15px;
     transition: 0.3s;
 }
+
+/* ARREDONDAMENTO DOS ÚLTIMOS ITENS */
 
 .subitem:last-child summary:hover,
 .submenu2 li:last-child a:hover {
@@ -394,137 +545,32 @@
     border-bottom-right-radius: 4px;
 }
 
-.header-tools {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+/* ========================================
+   MODO CLARO
+======================================== */
+
+.light-mode .header {
+    background-color: #f1f1f1 !important;
 }
 
-.barra .theme-btn, 
-.barra .font-btn {
-    position: static !important;
-    margin: 0 !important;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px; 
-    cursor: pointer;
-    font-size: 18px; 
-    height: 42px; 
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    color: white;
+.light-mode .menu {
+    background-color: #e0e0e0 !important;
 }
 
-.barra .theme-btn {
-    font-size: 22px; 
-}
-
-.barra .theme-btn:hover,
-.barra .font-btn:hover {
-    background: #ffffff20;
-}
-
-.barra .font-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px; 
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.barra .font-btn #fontScale {
-    font-size: 11px;
-    opacity: 0.7;
-    font-weight: normal;
-}
-
-.barra .login-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px; 
-    text-decoration: none;
-    color: #ffffff; 
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 12px;
-    height: 32px; 
-    border-radius: 6px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.barra .login-btn .user-icon {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-}
-
-.barra .login-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #00bcd4; 
+.light-mode .theme-btn,
+.light-mode .font-btn {
+    background: #00000020;
+    color: black;
+    border: 1px solid #00000055;
 }
 
 body.light-mode .barra .login-btn {
-    color: #333333; 
+    color: #333333;
 }
 
 body.light-mode .barra .login-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);
     color: #007bff;
-}
-
-.barra .user-logged-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 0 12px;
-    height: 32px;
-    border-radius: 6px;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 13px;
-}
-
-.barra .user-logged-box .user-icon {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-}
-
-.barra .user-logged-box .user-welcome {
-    font-weight: 400;
-    opacity: 0.9;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.barra .user-logged-box .user-welcome strong {
-    font-weight: 600;
-    color: #00bcd4;
-}
-
-.barra .user-logged-box .user-master-tag {
-    font-size: 11px;
-    opacity: 0.7;
-}
-
-.barra .user-logged-box .logout-link {
-    text-decoration: none;
-    color: #ff6b6b;
-    font-weight: 500;
-    margin-left: 4px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    transition: background 0.2s;
-}
-
-.barra .user-logged-box .logout-link:hover {
-    background-color: rgba(255, 107, 107, 0.15);
 }
 
 body.light-mode .barra .user-logged-box {
@@ -537,66 +583,265 @@ body.light-mode .barra .user-logged-box .user-welcome strong {
     color: #007bff;
 }
 
-.pesquisa {
-    display: flex;
-    flex: 1;
-    max-width: 450px;
-    margin: 0 auto;
-    align-items: center;
-    background-color: #3a3a3a;
-    border-radius: 12px;
-    overflow: hidden; 
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    height: 42px; 
-}
-
-.barra .user-logged-box .change-password-link {
-    text-decoration: none;
-    color: #cccccc; 
-    font-weight: 500;
-    margin-left: 8px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    transition: color 0.2s, background 0.2s;
-}
-
-.barra .user-logged-box .change-password-link:hover {
-    color: #00bcd4;
-    background-color: rgba(0, 188, 212, 0.1);
-}
-
 body.light-mode .barra .user-logged-box .change-password-link {
     color: #007bff;
 }
 
-body.light-mode .barra .user-logged-box .change-password-link:hover {
-    background-color: rgba(0, 123, 255, 0.1);
+body.light-mode .user-menu-popup {
+    background-color: #f1f1f1;
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 678px) {
+body.light-mode .user-menu-popup li a {
+    color: #333333;
+}
+
+body.light-mode .user-menu-popup li a:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+/* ========================================
+   RESPONSIVIDADE - TABLETS
+======================================== */
+
+@media (max-width: 1100px) {
+
     .barra {
-        padding: 15px 15px; 
-        flex-wrap: wrap;
-        gap: 10px;
+        padding: 15px 20px;
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 350px) minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    #logo {
+        width: 170px;
+    }
+
+    .header-right-group {
+        gap: 7px;
+    }
+
+    .header-tools {
+        gap: 6px;
+    }
+
+    .user {
+        gap: 6px;
+    }
+
+    .barra .user-logged-box {
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .user .cart {
+        padding: 0 10px;
+        font-size: 11px;
+    }
+
+    .menu > ul {
+        gap: 22px;
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE - TELAS MENORES
+======================================== */
+
+@media (max-width: 850px) {
+
+    .barra {
+        grid-template-columns: 1fr auto;
+        padding: 15px 20px;
+        row-gap: 15px;
+    }
+
+    .logo-area {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .header-right-group {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .pesquisa-wrapper {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        max-width: 450px;
+        justify-self: center;
+    }
+
+    .menu > ul {
+        gap: 18px;
+    }
+
+    .menu li a,
+    .menu summary {
+        font-size: 15px;
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE - CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+
+    .barra {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    #logo {
+        width: 135px;
+    }
+
+    .header-right-group {
+        gap: 6px;
+    }
+
+    .header-tools {
+        gap: 5px;
+    }
+
+    .barra .theme-btn,
+    .barra .font-btn {
+        height: 38px;
+        min-width: 38px;
+        padding: 0 8px;
+        border-radius: 8px;
+    }
+
+    .barra .theme-btn {
+        font-size: 17px;
+    }
+
+    .barra .font-btn {
+        font-size: 13px;
+    }
+
+    .barra .font-btn #fontScale {
+        font-size: 9px;
+    }
+
+    .user {
+        gap: 5px;
+    }
+
+    .barra .login-btn,
+    .barra .user-logged-box {
+        height: 38px;
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .barra .login-btn .user-icon,
+    .barra .user-logged-box .user-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .user .cart {
+        height: 38px;
+        padding: 0 9px;
+    }
+
+    .cart-icone {
+        width: 21px;
+        height: 21px;
+    }
+
+    .cart-label {
+        display: none;
+    }
+
+    .user-welcome {
+        gap: 2px;
+    }
+
+    .user-master-tag {
+        display: none;
+    }
+
+    .pesquisa-wrapper {
+        max-width: 100%;
     }
 
     .pesquisa {
-        width: 100%;
-        justify-items: end;
-        order: 3; 
-        margin-top: 10px;
+        height: 40px;
     }
-    
-    .user .cart {
-        padding: 0.8rem; 
-        font-size: 0;
-        gap: 0; 
+
+    .menu {
+        padding: 10px 8px;
+    }
+
+    .menu > ul {
+        gap: 12px;
+    }
+
+    .menu li a,
+    .menu summary {
+        font-size: 13px;
+    }
+
+    .menu > ul > li > a:hover,
+    .menu-details > summary:hover {
+        font-size: 14px;
+    }
+
+    .hamburguer-icon {
+        font-size: 19px !important;
+    }
+
+    .submenu {
+        min-width: 200px;
+    }
+
+    .subitem summary {
+        font-size: 14px;
+    }
+
+    .submenu2 {
+        left: auto;
+        right: 100%;
+    }
+}
+
+/* ========================================
+   CELULARES MUITO PEQUENOS
+======================================== */
+
+@media (max-width: 400px) {
+
+    .barra {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-area {
         justify-content: center;
     }
-    
-    .menu ul {
-        flex-wrap: wrap; 
-        gap: 10px;
-        padding: 0 15px;
+
+    .header-right-group {
+        grid-column: 1;
+        grid-row: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .pesquisa-wrapper {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .menu > ul {
+        gap: 9px;
+    }
+
+    .menu li a,
+    .menu summary {
+        font-size: 12px;
     }
 }
