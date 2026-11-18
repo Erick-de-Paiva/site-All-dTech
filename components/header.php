@@ -5,6 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/carrinho.css">
 
 <header class="header">
     <div class="barra">
@@ -13,10 +14,10 @@ if (session_status() === PHP_SESSION_NONE) {
         </a>
         
         <div class="pesquisa-wrapper">
-            <div class="pesquisa">
-                <input type="text" placeholder="Digite aqui...">
-                <button>🔍</button>
-            </div>
+            <form class="pesquisa" action="pesquisa.php" method="GET">
+                <input type="text" name="q" placeholder="Digite aqui..." value="<?php echo htmlspecialchars($_GET['q'] ?? ''); ?>" required>
+                <button type="submit">🔍︎</button>
+            </form>
         </div>
 
         <div class="header-right-group">
@@ -60,8 +61,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     <?php endif; ?>
                 </div>
                 
-                <a href="#" class="cart">
-                    <img src="img/icons8-carrinho-de-compras-64.png" alt="carrinho" class="cart-icone">CARRINHO (0)
+                <a href="carrinho.php" class="cart">
+                    <img src="img/icons8-carrinho-de-compras-64.png" alt="carrinho" class="cart-icone">CARRINHO (<span id="cartCount"><?php echo array_sum(array_column($_SESSION['carrinho'] ?? [], 'qtd')); ?></span>)
                 </a>
             </div>
         </div>
@@ -111,3 +112,4 @@ if (session_status() === PHP_SESSION_NONE) {
 </header>
 
 <script src="js/menu.js"></script>
+<script src="js/carrinho.js"></script>

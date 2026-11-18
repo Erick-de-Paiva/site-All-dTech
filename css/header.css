@@ -185,21 +185,30 @@
 }
 
 .user .cart {
-    background-color: green;
-    padding: 8px 12px;
-    border-radius: 5px;
-    color: white;
+    background-color: #2e7d32; 
+    padding: 9px 16px;
+    border-radius: 8px;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    display: flex;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    width: fit-content; 
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.user .cart:hover {
+    background-color: #388e3c; 
+    transform: translateY(-1px);
 }
 
 .cart-icone {
-    width: 30px;  
-    height: 30px;
+    width: 22px;  
+    height: 22px;
+    object-fit: contain;
 }
 
 .theme-btn {

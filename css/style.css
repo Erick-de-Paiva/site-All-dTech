@@ -379,8 +379,8 @@ body.light-mode,
 /* 
     * Opção AZUL (sombra e borda) para o hover do card de produto:
 
-    box-shadow: 0 12px 25px rgba(0, 212, 255, 0.3) !important;
-    border-color: rgba(0, 212, 255, 0.5) !important;
+    box-shadow: 0 12px 25px rgba(0, 212, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.5);
 
     * Opção ROSA (sombra e borda) para o hover do card de produto:
 
